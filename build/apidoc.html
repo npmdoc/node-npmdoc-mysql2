@@ -1,0 +1,5762 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/sidorares/node-mysql2#readme"
+
+    >mysql2 (v1.2.0)</a>
+</h1>
+<h4>fast mysql driver. Implements core protocol, prepared statements, ssl and compression in native JS</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2">module mysql2</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection">
+            function <span class="apidocSignatureSpan">mysql2.</span>Connection
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.connect">
+            function <span class="apidocSignatureSpan">mysql2.</span>connect
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.connection_config">
+            function <span class="apidocSignatureSpan">mysql2.</span>connection_config
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.createConnection">
+            function <span class="apidocSignatureSpan">mysql2.</span>createConnection
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.createConnectionPromise">
+            function <span class="apidocSignatureSpan">mysql2.</span>createConnectionPromise
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.createPool">
+            function <span class="apidocSignatureSpan">mysql2.</span>createPool
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.createPoolCluster">
+            function <span class="apidocSignatureSpan">mysql2.</span>createPoolCluster
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.createPoolPromise">
+            function <span class="apidocSignatureSpan">mysql2.</span>createPoolPromise
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.createServer">
+            function <span class="apidocSignatureSpan">mysql2.</span>createServer
+            <span class="apidocSignatureSpan">(handler)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.escape">
+            function <span class="apidocSignatureSpan">mysql2.</span>escape
+            <span class="apidocSignatureSpan">(val, stringifyObjects, timeZone)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.escapeId">
+            function <span class="apidocSignatureSpan">mysql2.</span>escapeId
+            <span class="apidocSignatureSpan">(val, forbidQualified)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.format">
+            function <span class="apidocSignatureSpan">mysql2.</span>format
+            <span class="apidocSignatureSpan">(sql, values, stringifyObjects, timeZone)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.packet_parser">
+            function <span class="apidocSignatureSpan">mysql2.</span>packet_parser
+            <span class="apidocSignatureSpan">(onPacket, packetHeaderLength)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool">
+            function <span class="apidocSignatureSpan">mysql2.</span>pool
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster">
+            function <span class="apidocSignatureSpan">mysql2.</span>pool_cluster
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_connection">
+            function <span class="apidocSignatureSpan">mysql2.</span>pool_connection
+            <span class="apidocSignatureSpan">(pool, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.server">
+            function <span class="apidocSignatureSpan">mysql2.</span>server
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>CharsetToEncoding</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>Charsets</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>Connection.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>Types</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>auth_41</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>compressed_protocol</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>helpers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>packet_parser.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>pool.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>pool_cluster.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>pool_connection.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>promise</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mysql2.</span>server.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.Connection">module mysql2.Connection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.Connection">
+            function <span class="apidocSignatureSpan">mysql2.</span>Connection
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.createQuery">
+            function <span class="apidocSignatureSpan">mysql2.Connection.</span>createQuery
+            <span class="apidocSignatureSpan">(sql, values, cb, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.statementKey">
+            function <span class="apidocSignatureSpan">mysql2.Connection.</span>statementKey
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.super_">
+            function <span class="apidocSignatureSpan">mysql2.Connection.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.Connection.prototype">module mysql2.Connection.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._addCommandClosedState">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_addCommandClosedState
+            <span class="apidocSignatureSpan">(cmd)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._binlogDump">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_binlogDump
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._bumpCompressedSequenceId">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_bumpCompressedSequenceId
+            <span class="apidocSignatureSpan">(numPackets)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._bumpSequenceId">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_bumpSequenceId
+            <span class="apidocSignatureSpan">(numPackets)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._handleFatalError">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_handleFatalError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._handleNetworkError">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_handleNetworkError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._handleTimeoutError">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_handleTimeoutError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._notifyError">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_notifyError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._registerSlave">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_registerSlave
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._resetSequenceId">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_resetSequenceId
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype._resolveNamedPlaceholders">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_resolveNamedPlaceholders
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.addCommand">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>addCommand
+            <span class="apidocSignatureSpan">(cmd)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.beginTransaction">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>beginTransaction
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.changeUser">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>changeUser
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.close">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>close
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.commit">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>commit
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.connect">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>connect
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.createBinlogStream">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>createBinlogStream
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.destroy">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>destroy
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.end">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>end
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.escape">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>escape
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.escapeId">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>escapeId
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.execute">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>execute
+            <span class="apidocSignatureSpan">(sql, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.format">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>format
+            <span class="apidocSignatureSpan">(sql, values)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.handlePacket">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>handlePacket
+            <span class="apidocSignatureSpan">(packet)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.keyFromFields">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>keyFromFields
+            <span class="apidocSignatureSpan">(fields, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.pause">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>pause
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.ping">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>ping
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.pipe">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>pipe
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.prepare">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>prepare
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.protocolError">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>protocolError
+            <span class="apidocSignatureSpan">(message, code)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.query">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>query
+            <span class="apidocSignatureSpan">(sql, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.resume">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>resume
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.rollback">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>rollback
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.serverHandshake">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>serverHandshake
+            <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.startTLS">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>startTLS
+            <span class="apidocSignatureSpan">(onSecure)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.unprepare">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>unprepare
+            <span class="apidocSignatureSpan">(sql)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.write">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>write
+            <span class="apidocSignatureSpan">(buffer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.writeColumns">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeColumns
+            <span class="apidocSignatureSpan">(columns)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.writeEof">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeEof
+            <span class="apidocSignatureSpan">(warnings, statusFlags)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.writeError">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeError
+            <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.writeOk">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeOk
+            <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.writePacket">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writePacket
+            <span class="apidocSignatureSpan">(packet)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.writeTextResult">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeTextResult
+            <span class="apidocSignatureSpan">(rows, columns)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.Connection.prototype.writeTextRow">
+            function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeTextRow
+            <span class="apidocSignatureSpan">(column)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.auth_41">module mysql2.auth_41</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.auth_41.calculateToken">
+            function <span class="apidocSignatureSpan">mysql2.auth_41.</span>calculateToken
+            <span class="apidocSignatureSpan">(password, scramble1, scramble2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.auth_41.calculateTokenFromPasswordSha">
+            function <span class="apidocSignatureSpan">mysql2.auth_41.</span>calculateTokenFromPasswordSha
+            <span class="apidocSignatureSpan">(passwordSha, scramble1, scramble2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.auth_41.doubleSha1">
+            function <span class="apidocSignatureSpan">mysql2.auth_41.</span>doubleSha1
+            <span class="apidocSignatureSpan">(password)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.auth_41.verifyToken">
+            function <span class="apidocSignatureSpan">mysql2.auth_41.</span>verifyToken
+            <span class="apidocSignatureSpan">(publicSeed1, publicSeed2, token, doubleSha)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.compressed_protocol">module mysql2.compressed_protocol</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.compressed_protocol.enableCompression">
+            function <span class="apidocSignatureSpan">mysql2.compressed_protocol.</span>enableCompression
+            <span class="apidocSignatureSpan">(connection)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.connection_config">module mysql2.connection_config</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.connection_config.connection_config">
+            function <span class="apidocSignatureSpan">mysql2.</span>connection_config
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.connection_config.getCharsetNumber">
+            function <span class="apidocSignatureSpan">mysql2.connection_config.</span>getCharsetNumber
+            <span class="apidocSignatureSpan">(charset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.connection_config.getDefaultFlags">
+            function <span class="apidocSignatureSpan">mysql2.connection_config.</span>getDefaultFlags
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.connection_config.getSSLProfile">
+            function <span class="apidocSignatureSpan">mysql2.connection_config.</span>getSSLProfile
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.connection_config.mergeFlags">
+            function <span class="apidocSignatureSpan">mysql2.connection_config.</span>mergeFlags
+            <span class="apidocSignatureSpan">(default_flags, user_flags)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.connection_config.parseUrl">
+            function <span class="apidocSignatureSpan">mysql2.connection_config.</span>parseUrl
+            <span class="apidocSignatureSpan">(url)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.helpers">module mysql2.helpers</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.helpers.srcEscape">
+            function <span class="apidocSignatureSpan">mysql2.helpers.</span>srcEscape
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.packet_parser">module mysql2.packet_parser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.packet_parser.packet_parser">
+            function <span class="apidocSignatureSpan">mysql2.</span>packet_parser
+            <span class="apidocSignatureSpan">(onPacket, packetHeaderLength)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.packet_parser.prototype">module mysql2.packet_parser.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.packet_parser.prototype._flushLargePacket4">
+            function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>_flushLargePacket4
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.packet_parser.prototype._flushLargePacket7">
+            function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>_flushLargePacket7
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.packet_parser.prototype.executeHeader2">
+            function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>executeHeader2
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.packet_parser.prototype.executeHeader3">
+            function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>executeHeader3
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.packet_parser.prototype.executePayload">
+            function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>executePayload
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.packet_parser.prototype.executeStart">
+            function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>executeStart
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.pool">module mysql2.pool</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool.pool">
+            function <span class="apidocSignatureSpan">mysql2.</span>pool
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool.super_">
+            function <span class="apidocSignatureSpan">mysql2.pool.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.pool.prototype">module mysql2.pool.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool.prototype._removeConnection">
+            function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>_removeConnection
+            <span class="apidocSignatureSpan">(connection)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool.prototype.end">
+            function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>end
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool.prototype.escape">
+            function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>escape
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool.prototype.escapeId">
+            function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>escapeId
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool.prototype.execute">
+            function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>execute
+            <span class="apidocSignatureSpan">(sql, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool.prototype.getConnection">
+            function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>getConnection
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool.prototype.query">
+            function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>query
+            <span class="apidocSignatureSpan">(sql, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool.prototype.releaseConnection">
+            function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>releaseConnection
+            <span class="apidocSignatureSpan">(connection)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.pool_cluster">module mysql2.pool_cluster</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.pool_cluster">
+            function <span class="apidocSignatureSpan">mysql2.</span>pool_cluster
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.super_">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.pool_cluster.prototype">module mysql2.pool_cluster.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.prototype._clearFindCaches">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_clearFindCaches
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.prototype._decreaseErrorCount">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_decreaseErrorCount
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.prototype._findNodeIds">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_findNodeIds
+            <span class="apidocSignatureSpan">(pattern)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.prototype._getConnection">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_getConnection
+            <span class="apidocSignatureSpan">(node, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.prototype._getNode">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_getNode
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.prototype._increaseErrorCount">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_increaseErrorCount
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.prototype.add">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>add
+            <span class="apidocSignatureSpan">(id, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.prototype.end">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>end
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.prototype.getConnection">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>getConnection
+            <span class="apidocSignatureSpan">(pattern, selector, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_cluster.prototype.of">
+            function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>of
+            <span class="apidocSignatureSpan">(pattern, selector)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.pool_connection">module mysql2.pool_connection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_connection.pool_connection">
+            function <span class="apidocSignatureSpan">mysql2.</span>pool_connection
+            <span class="apidocSignatureSpan">(pool, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_connection.statementKey">
+            function <span class="apidocSignatureSpan">mysql2.pool_connection.</span>statementKey
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_connection.super_">
+            function <span class="apidocSignatureSpan">mysql2.pool_connection.</span>super_
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.pool_connection.prototype">module mysql2.pool_connection.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_connection.prototype._realEnd">
+            function <span class="apidocSignatureSpan">mysql2.pool_connection.prototype.</span>_realEnd
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_connection.prototype._removeFromPool">
+            function <span class="apidocSignatureSpan">mysql2.pool_connection.prototype.</span>_removeFromPool
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_connection.prototype.destroy">
+            function <span class="apidocSignatureSpan">mysql2.pool_connection.prototype.</span>destroy
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_connection.prototype.end">
+            function <span class="apidocSignatureSpan">mysql2.pool_connection.prototype.</span>end
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.pool_connection.prototype.release">
+            function <span class="apidocSignatureSpan">mysql2.pool_connection.prototype.</span>release
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.promise">module mysql2.promise</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.promise.createConnection">
+            function <span class="apidocSignatureSpan">mysql2.promise.</span>createConnection
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.promise.createPool">
+            function <span class="apidocSignatureSpan">mysql2.promise.</span>createPool
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.server">module mysql2.server</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.server.server">
+            function <span class="apidocSignatureSpan">mysql2.</span>server
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.server.super_">
+            function <span class="apidocSignatureSpan">mysql2.server.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql2.server.prototype">module mysql2.server.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.server.prototype._handleConnection">
+            function <span class="apidocSignatureSpan">mysql2.server.prototype.</span>_handleConnection
+            <span class="apidocSignatureSpan">(socket)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.server.prototype.close">
+            function <span class="apidocSignatureSpan">mysql2.server.prototype.</span>close
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mysql2.server.prototype.listen">
+            function <span class="apidocSignatureSpan">mysql2.server.prototype.</span>listen
+            <span class="apidocSignatureSpan">(port, host, backlog, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2" id="apidoc.module.mysql2">module mysql2</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection" id="apidoc.element.mysql2.Connection">
+        function <span class="apidocSignatureSpan">mysql2.</span>Connection
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Connection(opts)
+{
+  EventEmitter.call(this);
+  this.config = opts.config;
+
+  // TODO: fill defaults
+  // if no params, connect to /var/lib/mysql/mysql.sock ( /tmp/mysql.sock on OSX )
+  // if host is given, connect to host:3306
+
+  // TODO: use `/usr/local/mysql/bin/mysql_config --socket` output? as default socketPath
+  // if there is no host/port and no socketPath parameters?
+
+  if (!opts.config.stream) {
+    if (opts.config.socketPath) {
+      this.stream = Net.connect(opts.config.socketPath);
+    } else {
+      this.stream = Net.connect(opts.config.port, opts.config.host);
+    }
+  } else {
+    // if stream is a function, treat it as &#x22;stream agent / factory&#x22;
+    if (typeof opts.config.stream == &#x27;function&#x27;) {
+      this.stream = opts.config.stream(opts);
+    } else {
+      this.stream = opts.config.stream;
+    }
+  }
+  this._internalId = _connectionId++;
+
+  this._commands = new Queue();
+  this._command = null;
+
+  this._paused = false;
+  this._paused_packets = new Queue();
+
+  this._statements = LRU({
+    max: this.config.maxPreparedStatements,
+    dispose: function (key, statement) { statement.close(); }
+  });
+
+  // TODO: make it lru cache
+  // https://github.com/mercadolibre/node-simple-lru-cache
+  // or https://github.com/rsms/js-lru
+  // or https://github.com/monsur/jscache
+  // or https://github.com/isaacs/node-lru-cache
+  //
+  // key is field.name + &#x27;:&#x27; + field.columnType + &#x27;:&#x27; field.flags + &#x27;/&#x27;
+  this.textProtocolParsers = {};
+
+  // TODO: not sure if cache should be separate (same key as with textProtocolParsers)
+  // or part of prepared statements cache (key is sql query)
+  this.binaryProtocolParsers = {};
+
+  this.serverCapabilityFlags = 0;
+  this.authorized = false;
+
+  var connection = this;
+
+  this.sequenceId = 0;
+  this.compressedSequenceId = 0;
+
+  this.threadId = null;
+  this._handshakePacket = null;
+  this._fatalError = null;
+  this._protocolError = null;
+  this._outOfOrderPackets = [];
+
+  this.clientEncoding = CharsetToEncoding[this.config.charsetNumber];
+
+  this.stream.once(&#x27;error&#x27;, connection._handleNetworkError.bind(this));
+
+  // see https://gist.github.com/khoomeister/4985691#use-that-instead-of-bind
+  this.packetParser = new PacketParser(function (p) {
+    connection.handlePacket(p);
+  });
+
+  this.stream.on(&#x27;data&#x27;, function (data) {
+    if (connection.connectTimeout) {
+      Timers.clearTimeout(connection.connectTimeout);
+      connection.connectTimeout = null;
+    }
+    connection.packetParser.execute(data);
+  });
+
+  this.stream.on(&#x27;end&#x27;, function () {
+    // we need to set this flag everywhere where we want connection to close
+    if (connection._closing) {
+      return;
+    }
+
+    if (!connection._protocolError) { // no particular error message before disconnect
+      connection._protocolError = new Error(&#x27;Connection lost: The server closed the connection.&#x27;);
+      connection._protocolError.fatal = true;
+      connection._protocolError.code = &#x27;PROTOCOL_CONNECTION_LOST&#x27;;
+    }
+
+    connection._notifyError(connection._protocolError);
+  });
+  var handshakeCommand;
+  if (!this.config.isServer) {
+    handshakeCommand = new Commands.ClientHandshake(this.config.clientFlags);
+    handshakeCommand.on(&#x27;end&#x27;, function () {
+      connection._handshakePacket = handshakeCommand.handshake;
+      connection.threadId = handshakeCommand.handshake.connectionId;
+      connection.emit(&#x27;connect&#x27;, handshakeCommand.handshake);
+    });
+    handshakeCommand.on(&#x27;error&#x27;, function (err) {
+      connection._notifyError(err);
+    });
+    this.addCommand(handshakeCommand);
+  }
+
+  // in case there was no initiall handshake but we need to read sting, assume it utf-8
+  // most common example: &#x22;Too many connections&#x22; error ( packet is sent immediately on connection attempt, we don&#x27;t know server
+encoding yet)
+  // will be overwrittedn with actial encoding value as soon as server handshake packet is received
+  this.serverEncoding = &#x27;utf8&#x27;;
+
+  if (this.config.connectTimeout) {
+    var timeoutHandler = this._handleTimeoutError.bind(this);
+    this.connectTimeout = Timers.setTimeout(timeoutHandler, this.config.connectTimeout);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.connect" id="apidoc.element.mysql2.connect">
+        function <span class="apidocSignatureSpan">mysql2.</span>connect
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function (opts) {
+  return new Connection({config: new ConnectionConfig(opts)});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  if (this.config.connectionLimit === 0 || this._allConnections.length &#x3c; this.config.connectionLimit) {
+connection = new PoolConnection(this, {config: this.config.connectionConfig});
+
+this._allConnections.push(connection);
+
+return connection.<span class="apidocCodeKeywordSpan">connect</span>(function (err) {
+  if (this._closed) {
+    return cb(new Error(&#x27;Pool is closed.&#x27;));
+  }
+  if (err) {
+    return cb(err);
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.connection_config" id="apidoc.element.mysql2.connection_config">
+        function <span class="apidocSignatureSpan">mysql2.</span>connection_config
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ConnectionConfig(options) {
+  if (typeof options === &#x27;string&#x27;) {
+    options = ConnectionConfig.parseUrl(options);
+  }
+
+  this.isServer = options.isServer;
+  this.stream = options.stream;
+
+  this.host = options.host || &#x27;localhost&#x27;;
+  this.port = options.port || 3306;
+  this.localAddress = options.localAddress;
+  this.socketPath = options.socketPath;
+  this.user = options.user || undefined;
+  this.password = options.password || undefined;
+  this.passwordSha1 = options.passwordSha1 || undefined;
+  this.database = options.database;
+  this.connectTimeout = (options.connectTimeout === undefined)
+    ? (10 * 1000)
+    : options.connectTimeout;
+  this.insecureAuth = options.insecureAuth || false;
+  this.supportBigNumbers = options.supportBigNumbers || false;
+  this.bigNumberStrings = options.bigNumberStrings || false;
+  this.decimalNumbers = options.decimalNumbers || false;
+  this.dateStrings = options.dateStrings || false;
+  this.debug = options.debug;
+  this.trace = options.trace !== false;
+  this.stringifyObjects = options.stringifyObjects || false;
+  this.timezone = options.timezone || &#x27;local&#x27;;
+  this.queryFormat = options.queryFormat;
+  this.pool = options.pool || undefined;
+  this.ssl = (typeof options.ssl === &#x27;string&#x27;)
+    ? ConnectionConfig.getSSLProfile(options.ssl)
+    : (options.ssl || false);
+  this.multipleStatements = options.multipleStatements || false;
+  this.rowsAsArray = options.rowsAsArray || false;
+  this.namedPlaceholders = options.namedPlaceholders || false;
+  this.nestTables = (options.nestTables === undefined) ? undefined : options.nestTables;
+  this.typeCast = (options.typeCast === undefined)
+    ? true
+    : options.typeCast;
+
+  if (this.timezone[0] == &#x27; &#x27;) {
+    // &#x22;+&#x22; is a url encoded char for space so it
+    // gets translated to space when giving a
+    // connection string..
+    this.timezone = &#x27;+&#x27; + this.timezone.substr(1);
+  }
+
+  if (this.ssl) {
+    // Default rejectUnauthorized to true
+    this.ssl.rejectUnauthorized = this.ssl.rejectUnauthorized !== false;
+  }
+
+  this.maxPacketSize = 0;
+  this.charsetNumber = (options.charset)
+    ? ConnectionConfig.getCharsetNumber(options.charset)
+    : options.charsetNumber || Charsets.UTF8MB4_UNICODE_CI;
+
+  this.compress = options.compress || false;
+
+  this.authSwitchHandler = options.authSwitchHandler;
+
+  this.clientFlags = ConnectionConfig.mergeFlags(ConnectionConfig.getDefaultFlags(options),
+                                                 options.flags || &#x27;&#x27;);
+
+  this.connectAttributes = options.connectAttributes;
+  this.maxPreparedStatements = options.maxPreparedStatements || 16000;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.createConnection" id="apidoc.element.mysql2.createConnection">
+        function <span class="apidocSignatureSpan">mysql2.</span>createConnection
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createConnection = function (opts) {
+  return new Connection({config: new ConnectionConfig(opts)});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## First Query
+
+```js
+// get the client
+var mysql = require(&#x27;mysql2&#x27;);
+
+// create the connection to database
+var connection = mysql.<span class="apidocCodeKeywordSpan">createConnection</span>({host:&#x27;localhost&#x27;, user: &#x27;root
+&#x27;, database: &#x27;test&#x27;});
+
+// simple query
+connection.query(&#x27;SELECT * FROM `table` WHERE `name` = &#x22;Page&#x22; AND `age` &#x3e; 45&#x27;, function (err, results,
+fields) {
+  console.log(results); // results contains rows returned by server
+  console.log(fields); // fields contains extra meta data about results, if available
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.createConnectionPromise" id="apidoc.element.mysql2.createConnectionPromise">
+        function <span class="apidocSignatureSpan">mysql2.</span>createConnectionPromise
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createConnection(opts) {
+  var coreConnection = core.createConnection(opts);
+  var Promise = opts.Promise || global.Promise;
+  if (!Promise) {
+    throw new Error(&#x27;no Promise implementation available.&#x27; +
+      &#x27;Use promise-enabled node version or pass userland Promise&#x27; +
+      &#x27; implementation as parameter, for example: { Promise: require(\&#x27;es6-promise\&#x27;).Promise }&#x27;);
+  }
+  return new Promise(function (resolve, reject) {
+    coreConnection.once(&#x27;connect&#x27;, function (connectParams) {
+      resolve(new PromiseConnection(coreConnection, Promise));
+    });
+    coreConnection.once(&#x27;error&#x27;, reject);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.createPool" id="apidoc.element.mysql2.createPool">
+        function <span class="apidocSignatureSpan">mysql2.</span>createPool
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createPool = function (config) {
+  var PoolConfig = require(&#x27;./lib/pool_config.js&#x27;);
+  var Pool = require(&#x27;./lib/pool.js&#x27;);
+  return new Pool({config: new PoolConfig(config)});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  c.end(function () {
+    resolve();
+  });
+});
+};
+
+function createPool (opts) {
+var corePool = core.<span class="apidocCodeKeywordSpan">createPool</span>(opts);
+var Promise = opts.Promise || global.Promise || require(&#x27;es6-promise&#x27;);
+
+var promisePool = {
+  getConnection: function () {
+    return new Promise(function (resolve, reject) {
+      corePool.getConnection(function (err, coreConnection) {
+        if (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.createPoolCluster" id="apidoc.element.mysql2.createPoolCluster">
+        function <span class="apidocSignatureSpan">mysql2.</span>createPoolCluster
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createPoolCluster = function (config) {
+  var PoolCluster = require(&#x27;./lib/pool_cluster.js&#x27;);
+  return new PoolCluster(config);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.createPoolPromise" id="apidoc.element.mysql2.createPoolPromise">
+        function <span class="apidocSignatureSpan">mysql2.</span>createPoolPromise
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createPool(opts) {
+  var corePool = core.createPool(opts);
+  var Promise = opts.Promise || global.Promise || require(&#x27;es6-promise&#x27;);
+
+  var promisePool = {
+    getConnection: function () {
+      return new Promise(function (resolve, reject) {
+        corePool.getConnection(function (err, coreConnection) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(new PromiseConnection(coreConnection, Promise));
+          }
+        });
+      });
+    },
+
+    query: function (sql, args) {
+      return new Promise(function (resolve, reject) {
+        var done = makeDoneCb(resolve, reject);
+        if (args) {
+          corePool.query(sql, args, done);
+        } else {
+          corePool.query(sql, done);
+        }
+      });
+    },
+
+    execute: function (sql, values) {
+      return new Promise(function (resolve, reject) {
+        corePool.execute(sql, values, makeDoneCb(resolve, reject));
+      });
+    },
+
+    end: function () {
+      return new Promise(function (resolve, reject) {
+        corePool.end(function (err) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
+        });
+      });
+    }
+  };
+
+  return promisePool;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.createServer" id="apidoc.element.mysql2.createServer">
+        function <span class="apidocSignatureSpan">mysql2.</span>createServer
+        <span class="apidocSignatureSpan">(handler)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createServer = function (handler) {
+  var Server = require(&#x27;./lib/server.js&#x27;);
+  var s = new Server();
+  if (handler) {
+    s.on(&#x27;connection&#x27;, handler);
+  }
+  return s;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var ConnectionConfig = require(&#x27;./connection_config&#x27;);
+
+// TODO: inherit Server from net.Server
+function Server ()
+{
+EventEmitter.call(this);
+this.connections = [];
+this._server = net.<span class="apidocCodeKeywordSpan">createServer</span>(this._handleConnection.bind(this));
+}
+util.inherits(Server, EventEmitter);
+
+Server.prototype._handleConnection = function (socket) {
+var connectionConfig = new ConnectionConfig({stream: socket, isServer: true});
+var connection = new Connection({config: connectionConfig});
+this.emit(&#x27;connection&#x27;, connection);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.escape" id="apidoc.element.mysql2.escape">
+        function <span class="apidocSignatureSpan">mysql2.</span>escape
+        <span class="apidocSignatureSpan">(val, stringifyObjects, timeZone)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function escape(val, stringifyObjects, timeZone) {
+  if (val === undefined || val === null) {
+    return &#x27;NULL&#x27;;
+  }
+
+  switch (typeof val) {
+    case &#x27;boolean&#x27;: return (val) ? &#x27;true&#x27; : &#x27;false&#x27;;
+    case &#x27;number&#x27;: return val+&#x27;&#x27;;
+    case &#x27;object&#x27;:
+      if (val instanceof Date) {
+        return SqlString.dateToString(val, timeZone || &#x27;local&#x27;);
+      } else if (Array.isArray(val)) {
+        return SqlString.arrayToList(val, timeZone);
+      } else if (Buffer.isBuffer(val)) {
+        return SqlString.bufferToString(val);
+      } else if (stringifyObjects) {
+        return escapeString(val.toString());
+      } else {
+        return SqlString.objectToValues(val, timeZone);
+      }
+    default: return escapeString(val);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Remove connection from free connections
+  spliceConnection(this._freeConnections, connection);
+
+  this.releaseConnection(connection);
+};
+
+Pool.prototype.escape = function (value) {
+  return mysql.<span class="apidocCodeKeywordSpan">escape</span>(value, this.config.connectionConfig.stringifyObjects, this.config
+.connectionConfig.timezone);
+};
+
+Pool.prototype.escapeId = function escapeId (value) {
+  return mysql.escapeId(value, false);
+};
+
+function spliceConnection (queue, connection) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.escapeId" id="apidoc.element.mysql2.escapeId">
+        function <span class="apidocSignatureSpan">mysql2.</span>escapeId
+        <span class="apidocSignatureSpan">(val, forbidQualified)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function escapeId(val, forbidQualified) {
+  if (Array.isArray(val)) {
+    var sql = &#x27;&#x27;;
+
+    for (var i = 0; i &#x3c; val.length; i++) {
+      sql += (i === 0 ? &#x27;&#x27; : &#x27;, &#x27;) + SqlString.escapeId(val[i], forbidQualified);
+    }
+
+    return sql;
+  }
+
+  if (forbidQualified) {
+    return &#x27;`&#x27; + String(val).replace(/`/g, &#x27;``&#x27;) + &#x27;`&#x27;;
+  }
+
+  return &#x27;`&#x27; + String(val).replace(/`/g, &#x27;``&#x27;).replace(/\./g, &#x27;`.`&#x27;) + &#x27;`&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Pool.prototype.escape = function (value) {
+return mysql.escape(value, this.config.connectionConfig.stringifyObjects, this.config.connectionConfig.timezone);
+};
+
+Pool.prototype.escapeId = function escapeId (value) {
+return mysql.<span class="apidocCodeKeywordSpan">escapeId</span>(value, false);
+};
+
+function spliceConnection (queue, connection) {
+var len = queue.length;
+if (len) {
+  if (queue.get(len - 1) === connection) {
+    queue.pop();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.format" id="apidoc.element.mysql2.format">
+        function <span class="apidocSignatureSpan">mysql2.</span>format
+        <span class="apidocSignatureSpan">(sql, values, stringifyObjects, timeZone)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function format(sql, values, stringifyObjects, timeZone) {
+  if (values == null) {
+    return sql;
+  }
+
+  if (!(values instanceof Array || Array.isArray(values))) {
+    values = [values];
+  }
+
+  var chunkIndex        = 0;
+  var placeholdersRegex = /\?\??/g;
+  var result            = &#x27;&#x27;;
+  var valuesIndex       = 0;
+  var match;
+
+  while (valuesIndex &#x3c; values.length &#x26;&#x26; (match = placeholdersRegex.exec(sql))) {
+    var value = match[0] === &#x27;??&#x27;
+        ? SqlString.escapeId(values[valuesIndex])
+        : SqlString.escape(values[valuesIndex], stringifyObjects, timeZone);
+
+    result += sql.slice(chunkIndex, match.index) + value;
+    chunkIndex = placeholdersRegex.lastIndex;
+    valuesIndex++;
+  }
+
+  if (chunkIndex === 0) {
+    // Nothing was replaced
+    return sql;
+  }
+
+  if (chunkIndex &#x3c; sql.length) {
+    return result + sql.slice(chunkIndex);
+  }
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.packet_parser" id="apidoc.element.mysql2.packet_parser">
+        function <span class="apidocSignatureSpan">mysql2.</span>packet_parser
+        <span class="apidocSignatureSpan">(onPacket, packetHeaderLength)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PacketParser(onPacket, packetHeaderLength)
+{
+  // 4 for normal packets, 7 for comprssed protocol packets
+  if (typeof packetHeaderLength == &#x27;undefined&#x27;) {
+    packetHeaderLength = 4;
+  }
+  // array of last payload chunks
+  // only used when current payload is not complete
+  this.buffer = [];
+  // total length of chunks on buffer
+  this.bufferLength = 0;
+  this.packetHeaderLength = packetHeaderLength;
+
+  // incomplete header state: number of header bytes received
+  this.headerLen = 0;
+
+  // expected payload length
+  this.length = 0;
+
+  this.largePacketParts = [];
+  this.firstPacketSequenceId = 0;
+
+  this.onPacket = onPacket;
+  this.execute = PacketParser.prototype.executeStart;
+  this._flushLargePacket = packetHeaderLength == 7 ?
+    this._flushLargePacket7 : this._flushLargePacket4;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool" id="apidoc.element.mysql2.pool">
+        function <span class="apidocSignatureSpan">mysql2.</span>pool
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Pool(options) {
+  EventEmitter.call(this);
+  this.config = options.config;
+  this.config.connectionConfig.pool = this;
+
+  this._allConnections = new Queue();
+  this._freeConnections = new Queue();
+  this._connectionQueue = new Queue();
+  this._closed = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster" id="apidoc.element.mysql2.pool_cluster">
+        function <span class="apidocSignatureSpan">mysql2.</span>pool_cluster
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PoolCluster(config) {
+  EventEmitter.call(this);
+
+  config = config || {};
+  this._canRetry = typeof config.canRetry === &#x27;undefined&#x27; ? true : config.canRetry;
+  this._removeNodeErrorCount = config.removeNodeErrorCount || 5;
+  this._defaultSelector = config.defaultSelector || &#x27;RR&#x27;;
+
+  this._closed = false;
+  this._lastId = 0;
+  this._nodes = {};
+  this._serviceableNodeIds = [];
+  this._namespaces = {};
+  this._findCaches = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_connection" id="apidoc.element.mysql2.pool_connection">
+        function <span class="apidocSignatureSpan">mysql2.</span>pool_connection
+        <span class="apidocSignatureSpan">(pool, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PoolConnection(pool, options) {
+  Connection.call(this, options);
+  this._pool = pool;
+
+  // When a fatal error occurs the connection&#x27;s protocol ends, which will cause
+  // the connection to end as well, thus we only need to watch for the end event
+  // and we will be notified of disconnects.
+  var connection = this;
+  this.on(&#x27;end&#x27;, function (err) { this._removeFromPool(); });
+  this.on(&#x27;error&#x27;, function (err) { this._removeFromPool(); });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.server" id="apidoc.element.mysql2.server">
+        function <span class="apidocSignatureSpan">mysql2.</span>server
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Server()
+{
+  EventEmitter.call(this);
+  this.connections = [];
+  this._server = net.createServer(this._handleConnection.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.Connection" id="apidoc.module.mysql2.Connection">module mysql2.Connection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.Connection" id="apidoc.element.mysql2.Connection.Connection">
+        function <span class="apidocSignatureSpan">mysql2.</span>Connection
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Connection(opts)
+{
+  EventEmitter.call(this);
+  this.config = opts.config;
+
+  // TODO: fill defaults
+  // if no params, connect to /var/lib/mysql/mysql.sock ( /tmp/mysql.sock on OSX )
+  // if host is given, connect to host:3306
+
+  // TODO: use `/usr/local/mysql/bin/mysql_config --socket` output? as default socketPath
+  // if there is no host/port and no socketPath parameters?
+
+  if (!opts.config.stream) {
+    if (opts.config.socketPath) {
+      this.stream = Net.connect(opts.config.socketPath);
+    } else {
+      this.stream = Net.connect(opts.config.port, opts.config.host);
+    }
+  } else {
+    // if stream is a function, treat it as &#x22;stream agent / factory&#x22;
+    if (typeof opts.config.stream == &#x27;function&#x27;) {
+      this.stream = opts.config.stream(opts);
+    } else {
+      this.stream = opts.config.stream;
+    }
+  }
+  this._internalId = _connectionId++;
+
+  this._commands = new Queue();
+  this._command = null;
+
+  this._paused = false;
+  this._paused_packets = new Queue();
+
+  this._statements = LRU({
+    max: this.config.maxPreparedStatements,
+    dispose: function (key, statement) { statement.close(); }
+  });
+
+  // TODO: make it lru cache
+  // https://github.com/mercadolibre/node-simple-lru-cache
+  // or https://github.com/rsms/js-lru
+  // or https://github.com/monsur/jscache
+  // or https://github.com/isaacs/node-lru-cache
+  //
+  // key is field.name + &#x27;:&#x27; + field.columnType + &#x27;:&#x27; field.flags + &#x27;/&#x27;
+  this.textProtocolParsers = {};
+
+  // TODO: not sure if cache should be separate (same key as with textProtocolParsers)
+  // or part of prepared statements cache (key is sql query)
+  this.binaryProtocolParsers = {};
+
+  this.serverCapabilityFlags = 0;
+  this.authorized = false;
+
+  var connection = this;
+
+  this.sequenceId = 0;
+  this.compressedSequenceId = 0;
+
+  this.threadId = null;
+  this._handshakePacket = null;
+  this._fatalError = null;
+  this._protocolError = null;
+  this._outOfOrderPackets = [];
+
+  this.clientEncoding = CharsetToEncoding[this.config.charsetNumber];
+
+  this.stream.once(&#x27;error&#x27;, connection._handleNetworkError.bind(this));
+
+  // see https://gist.github.com/khoomeister/4985691#use-that-instead-of-bind
+  this.packetParser = new PacketParser(function (p) {
+    connection.handlePacket(p);
+  });
+
+  this.stream.on(&#x27;data&#x27;, function (data) {
+    if (connection.connectTimeout) {
+      Timers.clearTimeout(connection.connectTimeout);
+      connection.connectTimeout = null;
+    }
+    connection.packetParser.execute(data);
+  });
+
+  this.stream.on(&#x27;end&#x27;, function () {
+    // we need to set this flag everywhere where we want connection to close
+    if (connection._closing) {
+      return;
+    }
+
+    if (!connection._protocolError) { // no particular error message before disconnect
+      connection._protocolError = new Error(&#x27;Connection lost: The server closed the connection.&#x27;);
+      connection._protocolError.fatal = true;
+      connection._protocolError.code = &#x27;PROTOCOL_CONNECTION_LOST&#x27;;
+    }
+
+    connection._notifyError(connection._protocolError);
+  });
+  var handshakeCommand;
+  if (!this.config.isServer) {
+    handshakeCommand = new Commands.ClientHandshake(this.config.clientFlags);
+    handshakeCommand.on(&#x27;end&#x27;, function () {
+      connection._handshakePacket = handshakeCommand.handshake;
+      connection.threadId = handshakeCommand.handshake.connectionId;
+      connection.emit(&#x27;connect&#x27;, handshakeCommand.handshake);
+    });
+    handshakeCommand.on(&#x27;error&#x27;, function (err) {
+      connection._notifyError(err);
+    });
+    this.addCommand(handshakeCommand);
+  }
+
+  // in case there was no initiall handshake but we need to read sting, assume it utf-8
+  // most common example: &#x22;Too many connections&#x22; error ( packet is sent immediately on connection attempt, we don&#x27;t know server
+encoding yet)
+  // will be overwrittedn with actial encoding value as soon as server handshake packet is received
+  this.serverEncoding = &#x27;utf8&#x27;;
+
+  if (this.config.connectTimeout) {
+    var timeoutHandler = this._handleTimeoutError.bind(this);
+    this.connectTimeout = Timers.setTimeout(timeoutHandler, this.config.connectTimeout);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.createQuery" id="apidoc.element.mysql2.Connection.createQuery">
+        function <span class="apidocSignatureSpan">mysql2.Connection.</span>createQuery
+        <span class="apidocSignatureSpan">(sql, values, cb, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createQuery(sql, values, cb, config) {
+  var options = {
+    rowsAsArray: config.rowsAsArray
+  };
+  if (typeof sql === &#x27;object&#x27;) {
+    // query(options, cb)
+    options = sql;
+    if (typeof values === &#x27;function&#x27;) {
+      cb = values;
+    } else if (values !== undefined) {
+      options.values = values;
+    }
+  } else if (typeof values === &#x27;function&#x27;) {
+    // query(sql, cb)
+    cb = values;
+    options.sql = sql;
+    options.values = undefined;
+  } else {
+    // query(sql, values, cb)
+    options.sql = sql;
+    options.values = values;
+  }
+  return new Commands.Query(options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+for (var i = 0; i &#x3c; this._allConnections.length; i++) {
+  connection = this._allConnections.get(i);
+  connection._realEnd(endCB);
+}
+};
+
+Pool.prototype.query = function (sql, values, cb) {
+var cmdQuery = Connection.<span class="apidocCodeKeywordSpan">createQuery</span>(sql, values, cb, this.config.connectionConfig);
+cmdQuery.namedPlaceholders = this.config.connectionConfig.namedPlaceholders;
+
+this.getConnection(function (err, conn) {
+  if (err) {
+    if (typeof cmdQuery.onResult === &#x27;function&#x27;) {
+      cmdQuery.onResult(err);
+    } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.statementKey" id="apidoc.element.mysql2.Connection.statementKey">
+        function <span class="apidocSignatureSpan">mysql2.Connection.</span>statementKey
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">statementKey = function (options) {
+  return (typeof options.nestTables) +
+    &#x27;/&#x27; + options.nestTables + &#x27;/&#x27; + options.rowsAsArray + options.sql;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.super_" id="apidoc.element.mysql2.Connection.super_">
+        function <span class="apidocSignatureSpan">mysql2.Connection.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.Connection.prototype" id="apidoc.module.mysql2.Connection.prototype">module mysql2.Connection.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._addCommandClosedState" id="apidoc.element.mysql2.Connection.prototype._addCommandClosedState">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_addCommandClosedState
+        <span class="apidocSignatureSpan">(cmd)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_addCommandClosedState = function (cmd) {
+  var err = new Error(&#x27;Can\&#x27;t add new command when connection is in closed state&#x27;);
+  err.fatal = true;
+  if (cmd.onResult) {
+    cmd.onResult(err);
+  } else {
+    this.emit(&#x27;error&#x27;, err);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._binlogDump" id="apidoc.element.mysql2.Connection.prototype._binlogDump">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_binlogDump
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function binlogDump(opts, cb) {
+  return this.addCommand(new Commands.BinlogDump(opts, cb));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._bumpCompressedSequenceId" id="apidoc.element.mysql2.Connection.prototype._bumpCompressedSequenceId">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_bumpCompressedSequenceId
+        <span class="apidocSignatureSpan">(numPackets)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_bumpCompressedSequenceId = function (numPackets) {
+  this.compressedSequenceId += numPackets;
+  this.compressedSequenceId %= 256;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (deflatedLength !== 0) {
+  connection.inflateQueue.push(function (task) {
+    zlib.inflate(body, function (err, data) {
+      if (err) {
+        connection._handleNetworkError(err);
+        return;
+      }
+      connection.<span class="apidocCodeKeywordSpan">_bumpCompressedSequenceId</span>(packet.numPackets);
+      connection._inflatedPacketsParser.execute(data);
+      task.done();
+    });
+  });
+} else {
+  connection.inflateQueue.push(function (task) {
+    connection._bumpCompressedSequenceId(packet.numPackets);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._bumpSequenceId" id="apidoc.element.mysql2.Connection.prototype._bumpSequenceId">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_bumpSequenceId
+        <span class="apidocSignatureSpan">(numPackets)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_bumpSequenceId = function (numPackets) {
+  this.sequenceId += numPackets;
+  this.sequenceId %= 256;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._handleFatalError" id="apidoc.element.mysql2.Connection.prototype._handleFatalError">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_handleFatalError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleFatalError = function (err) {
+  var connection = this;
+  err.fatal = true;
+  // stop receiving packets
+  connection.stream.removeAllListeners(&#x27;data&#x27;);
+  connection.addCommand = connection._addCommandClosedState;
+  connection.write = function () {
+    connection.emit(&#x27;error&#x27;, new Error(&#x27;Can\&#x27;t write in closed state&#x27;));
+  };
+  connection._notifyError(err);
+  connection._fatalError = err;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // seqqueue is used here because zlib async execution is routed via thread pool
+  // internally and when we have multiple compressed packets arriving we need
+  // to assemble uncompressed result sequentially
+  (function (seqId) {
+    connection.deflateQueue.push(function (task) {
+      zlib.deflate(buffer, function (err, compressed) {
+if (err) {
+  connection.<span class="apidocCodeKeywordSpan">_handleFatalError</span>(err);
+  return;
+}
+var compressedLength = compressed.length;
+
+if (compressedLength &#x3c; packetLen) {
+  compressHeader.writeUInt8(compressedLength &#x26; 0xff, 0);
+  compressHeader.writeUInt16LE(compressedLength &#x3e;&#x3e; 8, 1);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._handleNetworkError" id="apidoc.element.mysql2.Connection.prototype._handleNetworkError">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_handleNetworkError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleNetworkError = function (err) {
+  this._handleFatalError(err);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var body = packet.readBuffer();
+
+
+if (deflatedLength !== 0) {
+  connection.inflateQueue.push(function (task) {
+    zlib.inflate(body, function (err, data) {
+      if (err) {
+        connection.<span class="apidocCodeKeywordSpan">_handleNetworkError</span>(err);
+        return;
+      }
+      connection._bumpCompressedSequenceId(packet.numPackets);
+      connection._inflatedPacketsParser.execute(data);
+      task.done();
+    });
+  });
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._handleTimeoutError" id="apidoc.element.mysql2.Connection.prototype._handleTimeoutError">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_handleTimeoutError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleTimeoutError = function () {
+  if (this.connectTimeout) {
+    Timers.clearTimeout(this.connectTimeout);
+    this.connectTimeout = null;
+  }
+
+  this.stream.destroy &#x26;&#x26; this.stream.destroy();
+
+  var err = new Error(&#x27;connect ETIMEDOUT&#x27;);
+  err.errorno = &#x27;ETIMEDOUT&#x27;;
+  err.code = &#x27;ETIMEDOUT&#x27;;
+  err.syscall = &#x27;connect&#x27;;
+
+  this._handleNetworkError(err);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._notifyError" id="apidoc.element.mysql2.Connection.prototype._notifyError">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_notifyError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_notifyError = function (err) {
+  var connection = this;
+
+  // prevent from emitting &#x27;PROTOCOL_CONNECTION_LOST&#x27; after EPIPE or ECONNRESET
+  if (connection._fatalError) {
+    return;
+  }
+
+  var command;
+
+  // if there is no active command, notify connection
+  // if there are commands and all of them have callbacks, pass error via callback
+  var bubbleErrorToConnection = !connection._command;
+  if (connection._command &#x26;&#x26; connection._command.onResult) {
+    connection._command.onResult(err);
+    connection._command = null;
+  } else {
+    bubbleErrorToConnection = true;
+  }
+  while ((command = connection._commands.shift())) {
+    if (command.onResult) {
+      command.onResult(err);
+    } else {
+      bubbleErrorToConnection = true;
+    }
+  }
+  // notify connection if some comands in the queue did not have callbacks
+  // or if this is pool connection ( so it can be removed from pool )
+  if (bubbleErrorToConnection || connection._pool) {
+    connection.emit(&#x27;error&#x27;, err);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._registerSlave" id="apidoc.element.mysql2.Connection.prototype._registerSlave">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_registerSlave
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function registerSlave(opts, cb) {
+  return this.addCommand(new Commands.RegisterSlave(opts, cb));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._resetSequenceId" id="apidoc.element.mysql2.Connection.prototype._resetSequenceId">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_resetSequenceId
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_resetSequenceId = function () {
+  this.sequenceId = 0;
+  this.compressedSequenceId = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype._resolveNamedPlaceholders" id="apidoc.element.mysql2.Connection.prototype._resolveNamedPlaceholders">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>_resolveNamedPlaceholders
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_resolveNamedPlaceholders = function (options) {
+  var unnamed;
+  if (this.config.namedPlaceholders || options.namedPlaceholders) {
+    if (convertNamedPlaceholders === null) {
+      convertNamedPlaceholders = require(&#x27;named-placeholders&#x27;)();
+    }
+    unnamed = convertNamedPlaceholders(options.sql, options.values);
+    options.sql = unnamed[0];
+    options.values = unnamed[1];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.addCommand" id="apidoc.element.mysql2.Connection.prototype.addCommand">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>addCommand
+        <span class="apidocSignatureSpan">(cmd)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addCommand = function (cmd) {
+
+  // this.compressedSequenceId = 0;
+  // this.sequenceId = 0;
+
+  if (this.config.debug) {
+    console.log(&#x27;Add command: &#x27; + arguments.callee.caller.name);
+    cmd._commandName = arguments.callee.caller.name;
+  }
+  if (!this._command) {
+    this._command = cmd;
+    this.handlePacket();
+  } else {
+    this._commands.push(cmd);
+  }
+  return cmd;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.beginTransaction" id="apidoc.element.mysql2.Connection.prototype.beginTransaction">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>beginTransaction
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">beginTransaction = function (cb) {
+  return this.query(&#x27;START TRANSACTION&#x27;, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.changeUser" id="apidoc.element.mysql2.Connection.prototype.changeUser">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>changeUser
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function changeUser(options, callback) {
+  if (!callback &#x26;&#x26; typeof options === &#x27;function&#x27;) {
+    callback = options;
+    options = {};
+  }
+
+  var charsetNumber = (options.charset) ? ConnectionConfig.getCharsetNumber(options.charset) : this.config.charsetNumber;
+
+  return this.addCommand(new Commands.ChangeUser({
+    user          : options.user || this.config.user,
+    password      : options.password || this.config.password,
+    passwordSha1  : options.passwordSha1 || this.config.passwordSha1,
+    database      : options.database || this.config.database,
+    timeout       : options.timeout,
+    charsetNumber : charsetNumber,
+    currentConfig : this.config
+  }, function (err) {
+    if (err) {
+      err.fatal = true;
+    }
+
+    if (callback) {
+      callback(err);
+    }
+  }));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.close" id="apidoc.element.mysql2.Connection.prototype.close">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>close
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function () {
+  this._closing = true;
+  this.stream.end();
+  var connection = this;
+  connection.addCommand = connection._addCommandClosedState;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Server.prototype.listen = function (port, host, backlog, callback) {
+  this._port = port;
+  this._server.listen.apply(this._server, arguments);
+  return this;
+};
+
+Server.prototype.close = function (cb) {
+  this._server.<span class="apidocCodeKeywordSpan">close</span>(cb);
+};
+
+module.exports = Server;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.commit" id="apidoc.element.mysql2.Connection.prototype.commit">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>commit
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">commit = function (cb) {
+  return this.query(&#x27;COMMIT&#x27;, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.connect" id="apidoc.element.mysql2.Connection.prototype.connect">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>connect
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function (cb) {
+  if (!cb) {
+    return;
+  }
+  var connectCalled = 0;
+
+  function callbackOnce (isErrorHandler) {
+    return function (param) {
+      if (!connectCalled) {
+        if (isErrorHandler) {
+          cb(param);
+        } else {
+          cb(null, param);
+        }
+      }
+      connectCalled = 1;
+    };
+  }
+  this.once(&#x27;error&#x27;, callbackOnce(true));
+  this.once(&#x27;connect&#x27;, callbackOnce(false));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  if (this.config.connectionLimit === 0 || this._allConnections.length &#x3c; this.config.connectionLimit) {
+connection = new PoolConnection(this, {config: this.config.connectionConfig});
+
+this._allConnections.push(connection);
+
+return connection.<span class="apidocCodeKeywordSpan">connect</span>(function (err) {
+  if (this._closed) {
+    return cb(new Error(&#x27;Pool is closed.&#x27;));
+  }
+  if (err) {
+    return cb(err);
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.createBinlogStream" id="apidoc.element.mysql2.Connection.prototype.createBinlogStream">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>createBinlogStream
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createBinlogStream = function (opts) {
+  // TODO: create proper stream class
+  // TODO: use through2
+  var test = 1;
+  var Readable = require(&#x27;stream&#x27;).Readable;
+  var stream = new Readable({objectMode: true});
+  stream._read = function () {
+    return {
+      data: test++
+    };
+  };
+  var connection = this;
+  connection._registerSlave(opts, function (err) {
+    var dumpCmd = connection._binlogDump(opts);
+    dumpCmd.on(&#x27;event&#x27;, function (ev) {
+      stream.push(ev);
+    });
+    dumpCmd.on(&#x27;eof&#x27;, function () {
+      stream.push(null);
+      // if non-blocking, then close stream to prevent errors
+      if (opts.flags &#x26;&#x26; (opts.flags &#x26; 0x01)) {
+        connection.close();
+      }
+    });
+    // TODO: pipe errors as well
+  });
+  return stream;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.destroy" id="apidoc.element.mysql2.Connection.prototype.destroy">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>destroy
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function () {
+  this.close();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.end" id="apidoc.element.mysql2.Connection.prototype.end">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>end
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function (callback) {
+  var connection = this;
+
+  if (this.config.isServer) {
+    connection._closing = true;
+    var quitCmd = new EventEmitter();
+    setImmediate(function () {
+      connection.stream.end();
+      quitCmd.emit(&#x27;end&#x27;);
+    });
+    return quitCmd;
+  }
+
+  // trigger error if more commands enqueued after end command
+  var quitCmd = this.addCommand(new Commands.Quit(callback));
+  connection.addCommand = connection._addCommandClosedState;
+  return quitCmd;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (this._closed) {
+  return;
+}
+
+this._closed = true;
+
+for (var id in this._nodes) {
+  this._nodes[id].pool.<span class="apidocCodeKeywordSpan">end</span>();
+}
+};
+
+PoolCluster.prototype._findNodeIds = function (pattern) {
+if (typeof this._findCaches[pattern] !== &#x27;undefined&#x27;) {
+  return this._findCaches[pattern];
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.escape" id="apidoc.element.mysql2.Connection.prototype.escape">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>escape
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escape = function (value) {
+  return SqlString.escape(value, false, this.config.timezone);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Remove connection from free connections
+  spliceConnection(this._freeConnections, connection);
+
+  this.releaseConnection(connection);
+};
+
+Pool.prototype.escape = function (value) {
+  return mysql.<span class="apidocCodeKeywordSpan">escape</span>(value, this.config.connectionConfig.stringifyObjects, this.config
+.connectionConfig.timezone);
+};
+
+Pool.prototype.escapeId = function escapeId (value) {
+  return mysql.escapeId(value, false);
+};
+
+function spliceConnection (queue, connection) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.escapeId" id="apidoc.element.mysql2.Connection.prototype.escapeId">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>escapeId
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function escapeId(value) {
+  return SqlString.escapeId(value, false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Pool.prototype.escape = function (value) {
+return mysql.escape(value, this.config.connectionConfig.stringifyObjects, this.config.connectionConfig.timezone);
+};
+
+Pool.prototype.escapeId = function escapeId (value) {
+return mysql.<span class="apidocCodeKeywordSpan">escapeId</span>(value, false);
+};
+
+function spliceConnection (queue, connection) {
+var len = queue.length;
+if (len) {
+  if (queue.get(len - 1) === connection) {
+    queue.pop();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.execute" id="apidoc.element.mysql2.Connection.prototype.execute">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>execute
+        <span class="apidocSignatureSpan">(sql, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function execute(sql, values, cb) {
+  var options = {};
+  if (typeof sql === &#x27;object&#x27;) {
+    // execute(options, cb)
+    options = sql;
+    if (typeof values === &#x27;function&#x27;) {
+      cb = values;
+    } else {
+      options.values = options.values || values;
+    }
+  } else if (typeof values === &#x27;function&#x27;) {
+    // execute(sql, cb)
+    cb = values;
+    options.sql = sql;
+    options.values = undefined;
+  } else {
+    // execute(sql, values, cb)
+    options.sql = sql;
+    options.values = values;
+  }
+  this._resolveNamedPlaceholders(options);
+
+  var executeCommand = new Commands.Execute(options, cb);
+  var prepareCommand = new Commands.Prepare(options, function (err, stmt) {
+    if (err) {
+      // skip execute command if prepare failed, we have main
+      // combined callback here
+      executeCommand.start = function () { return null; };
+
+      if (cb) {
+        cb(err);
+      } else {
+        executeCommand.emit(&#x27;error&#x27;, err);
+      }
+      return;
+    }
+
+    executeCommand.statement = stmt;
+  });
+
+  this.addCommand(prepareCommand);
+  this.addCommand(executeCommand);
+  return executeCommand;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// get the client
+var mysql = require(&#x27;mysql2&#x27;);
+
+// create the connection to database
+var connection = mysql.createConnection({host:&#x27;localhost&#x27;, user: &#x27;root&#x27;, database: &#x27;test&#x27;});
+
+// execute will internally call prepare and query
+connection.<span class="apidocCodeKeywordSpan">execute</span>(&#x27;SELECT * FROM `table` WHERE `name` = ? AND `age` &#x3e; ?&#x27
+;, [&#x27;Rick C-137&#x27;, 53], function (err, results, fields) {
+  console.log(results); // results contains rows returned by server
+  console.log(fields); // fields contains extra meta data about results, if available
+
+  // If you execute same statement again, it will be picked form a LRU cache
+  // which will save query preparation time and give better performance
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.format" id="apidoc.element.mysql2.Connection.prototype.format">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>format
+        <span class="apidocSignatureSpan">(sql, values)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">format = function (sql, values) {
+  if (typeof this.config.queryFormat == &#x27;function&#x27;) {
+    return this.config.queryFormat.call(this, sql, values, this.config.timezone);
+  }
+  var opts = {
+    sql: sql,
+    values: values
+  };
+  this._resolveNamedPlaceholders(opts);
+  return SqlString.format(opts.sql, opts.values, this.config.stringifyObjects, this.config.timezone);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.handlePacket" id="apidoc.element.mysql2.Connection.prototype.handlePacket">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>handlePacket
+        <span class="apidocSignatureSpan">(packet)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handlePacket = function (packet) {
+  if (this._paused) {
+    this._paused_packets.push(packet);
+    return;
+  }
+  if (packet) {
+    if (this.sequenceId !== packet.sequenceId) {
+      console.error(&#x27;Warning: got packets out of order. Expected &#x27; +
+        this.sequenceId + &#x27; but received &#x27; + packet.sequenceId);
+    }
+    this._bumpSequenceId(packet.numPackets);
+  }
+
+  if (this.config.debug) {
+    if (packet) {
+      console.log(&#x27; raw: &#x27; + packet.buffer.slice(packet.offset, packet.offset + packet.length()).toString(&#x27;hex&#x27;));
+      console.trace();
+      var commandName = this._command ? this._command._commandName : &#x27;(no command)&#x27;;
+      var stateName = this._command ? this._command.stateName() : &#x27;(no command)&#x27;;
+      console.log(this._internalId + &#x27; &#x27; + this.connectionId + &#x27; ==&#x3e; &#x27; + commandName + &#x27;#&#x27; + stateName + &#x27;(&#x27; + [packet.sequenceId
+, packet.type(), packet.length()].join(&#x27;,&#x27;) + &#x27;)&#x27;);
+    }
+  }
+  if (!this._command) {
+    this.protocolError(&#x27;Unexpected packet while no commands in the queue&#x27;, &#x27;PROTOCOL_UNEXPECTED_PACKET&#x27;);
+    this.close();
+    return;
+  }
+
+  var done = this._command.execute(packet, this);
+  if (done) {
+
+    this._command = this._commands.shift();
+    if (this._command) {
+      this.sequenceId = 0;
+      this.compressedSequenceId = 0;
+      this.handlePacket();
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function enableCompression (connection) {
+connection._lastWrittenPacketId = 0;
+connection._lastReceivedPacketId = 0;
+
+connection._handleCompressedPacket = handleCompressedPacket;
+connection._inflatedPacketsParser = new PacketParser(function (p) {
+  connection.<span class="apidocCodeKeywordSpan">handlePacket</span>(p);
+}, 4);
+connection._inflatedPacketsParser._lastPacket = 0;
+connection.packetParser = new PacketParser(function (packet) {
+  connection._handleCompressedPacket(packet);
+}, 7);
+
+connection.writeUncompressed = connection.write;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.keyFromFields" id="apidoc.element.mysql2.Connection.prototype.keyFromFields">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>keyFromFields
+        <span class="apidocSignatureSpan">(fields, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function keyFromFields(fields, options) {
+  var res = (typeof options.nestTables) + &#x27;/&#x27; + options.nestTables + &#x27;/&#x27; + options.rowsAsArray
+    + options.supportBigNumbers + &#x27;/&#x27; + options.bigNumberStrings + &#x27;/&#x27; + typeof options.typeCast;
+  for (var i = 0; i &#x3c; fields.length; ++i) {
+    res += &#x27;/&#x27; + fields[i].name + &#x27;:&#x27; + fields[i].columnType + &#x27;:&#x27; + fields[i].flags;
+  }
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.pause" id="apidoc.element.mysql2.Connection.prototype.pause">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>pause
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pause() {
+  this._paused = true;
+  this.stream.pause();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+stream._read = function () {
+  connectionStream.resume();
+};
+
+this.on(&#x27;result&#x27;, function (row, i) {
+  if (!stream.push(row)) {
+    connectionStream.<span class="apidocCodeKeywordSpan">pause</span>();
+  }
+  stream.emit(&#x27;result&#x27;, row, i);  // replicate old emitter
+});
+
+this.on(&#x27;error&#x27;, function (err) {
+  stream.emit(&#x27;error&#x27;, err);  // Pass on any errors
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.ping" id="apidoc.element.mysql2.Connection.prototype.ping">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>ping
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ping(cb) {
+  return this.addCommand(new Commands.Ping(cb));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.pipe" id="apidoc.element.mysql2.Connection.prototype.pipe">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>pipe
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pipe = function () {
+  var connection = this;
+  if (this.stream instanceof Net.Stream) {
+    this.stream.ondata = function (data, start, end) {
+      connection.packetParser.execute(data, start, end);
+    };
+  } else {
+    this.stream.on(&#x27;data&#x27;, function (data) {
+      connection.packetParser.execute(data.parent, data.offset, data.offset + data.length);
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.prepare" id="apidoc.element.mysql2.Connection.prototype.prepare">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>prepare
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function prepare(options, cb) {
+  if (typeof options == &#x27;string&#x27;) {
+    options = {sql: options};
+  }
+  return this.addCommand(new Commands.Prepare(options, cb));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.protocolError" id="apidoc.element.mysql2.Connection.prototype.protocolError">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>protocolError
+        <span class="apidocSignatureSpan">(message, code)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">protocolError = function (message, code) {
+  var err = new Error(message);
+  err.fatal = true;
+  err.code = code || &#x27;PROTOCOL_ERROR&#x27;;
+  this.emit(&#x27;error&#x27;, err);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.query" id="apidoc.element.mysql2.Connection.prototype.query">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>query
+        <span class="apidocSignatureSpan">(sql, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function query(sql, values, cb) {
+  var cmdQuery;
+  if (sql.constructor == Commands.Query) {
+    cmdQuery = sql;
+  } else {
+    cmdQuery = Connection.createQuery(sql, values, cb, this.config);
+  }
+  this._resolveNamedPlaceholders(cmdQuery);
+  var rawSql = this.format(cmdQuery.sql, cmdQuery.values || []);
+  cmdQuery.sql = rawSql;
+  return this.addCommand(cmdQuery);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// get the client
+var mysql = require(&#x27;mysql2&#x27;);
+
+// create the connection to database
+var connection = mysql.createConnection({host:&#x27;localhost&#x27;, user: &#x27;root&#x27;, database: &#x27;test&#x27;});
+
+// simple query
+connection.<span class="apidocCodeKeywordSpan">query</span>(&#x27;SELECT * FROM `table` WHERE `name` = &#x22;Page&#x22; AND `age
+` &#x3e; 45&#x27;, function (err, results, fields) {
+console.log(results); // results contains rows returned by server
+console.log(fields); // fields contains extra meta data about results, if available
+});
+
+// with placeholder
+connection.query(&#x27;SELECT * FROM `table` WHERE `name` = ? AND `age` &#x3e; ?&#x27;, [&#x27;Page&#x27;, 45], function (err, results
+) {
+console.log(results);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.resume" id="apidoc.element.mysql2.Connection.prototype.resume">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>resume
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resume() {
+  var packet;
+  this._paused = false;
+  while ((packet = this._paused_packets.shift())) {
+    this.handlePacket(packet);
+    // don&#x27;t resume if packet hander paused connection
+    if (this._paused) {
+      return;
+    }
+  }
+  this.stream.resume();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var stream;
+
+options = options || {};
+options.objectMode = true;
+stream = new Readable(options),
+
+stream._read = function () {
+  connectionStream.<span class="apidocCodeKeywordSpan">resume</span>();
+};
+
+this.on(&#x27;result&#x27;, function (row, i) {
+  if (!stream.push(row)) {
+    connectionStream.pause();
+  }
+  stream.emit(&#x27;result&#x27;, row, i);  // replicate old emitter
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.rollback" id="apidoc.element.mysql2.Connection.prototype.rollback">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>rollback
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rollback = function (cb) {
+  return this.query(&#x27;ROLLBACK&#x27;, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.serverHandshake" id="apidoc.element.mysql2.Connection.prototype.serverHandshake">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>serverHandshake
+        <span class="apidocSignatureSpan">(args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function serverHandshake(args) {
+  this.serverConfig = args;
+  this.serverConfig.encoding = CharsetToEncoding[this.serverConfig.characterSet];
+  return this.addCommand(new Commands.ServerHandshake(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.startTLS" id="apidoc.element.mysql2.Connection.prototype.startTLS">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>startTLS
+        <span class="apidocSignatureSpan">(onSecure)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _startTLS(onSecure) {
+  if (this.config.debug) {
+    console.log(&#x27;Upgrading connection to TLS&#x27;);
+  }
+  var connection = this;
+  var stream = this.stream;
+  var secureContext = Tls.createSecureContext({
+    ca         : this.config.ssl.ca,
+    cert       : this.config.ssl.cert,
+    ciphers    : this.config.ssl.ciphers,
+    key        : this.config.ssl.key,
+    passphrase : this.config.ssl.passphrase
+  });
+
+  var rejectUnauthorized = this.config.ssl.rejectUnauthorized;
+  var secureEstablished = false;
+  var secureSocket = new Tls.TLSSocket(connection.stream, {
+    rejectUnauthorized : rejectUnauthorized,
+    requestCert        : true,
+    secureContext      : secureContext,
+    isServer           : false
+  });
+
+  // error handler for secure socket
+  secureSocket.on(&#x27;_tlsError&#x27;, function (err) {
+    if (secureEstablished) {
+      connection._handleNetworkError(err);
+    } else {
+      onSecure(err);
+    }
+  });
+
+  secureSocket.on(&#x27;secure&#x27;, function () {
+    secureEstablished = true;
+    onSecure(rejectUnauthorized ? this.ssl.verifyError() : null);
+  });
+  secureSocket.on(&#x27;data&#x27;, function (data) {
+    connection.packetParser.execute(data);
+  });
+  connection.write = function (buffer) {
+    secureSocket.write(buffer);
+  };
+  // start TLS communications
+  secureSocket._start();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.unprepare" id="apidoc.element.mysql2.Connection.prototype.unprepare">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>unprepare
+        <span class="apidocSignatureSpan">(sql)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unprepare(sql) {
+  var options = {};
+  if (typeof sql === &#x27;object&#x27;) {
+    options = sql;
+  } else {
+    options.sql = sql;
+  }
+  var key = Connection.statementKey(options);
+  var stmt = this._statements.get(key);
+  if (stmt) {
+    this._statements.del(key);
+    stmt.close();
+  }
+  return stmt;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.write" id="apidoc.element.mysql2.Connection.prototype.write">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>write
+        <span class="apidocSignatureSpan">(buffer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">write = function (buffer) {
+  var connection = this;
+  this.stream.write(buffer, function (err) {
+    if (err) {
+      connection._handleNetworkError(err);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.writeColumns" id="apidoc.element.mysql2.Connection.prototype.writeColumns">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeColumns
+        <span class="apidocSignatureSpan">(columns)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeColumns = function (columns) {
+  var connection = this;
+  this.writePacket(Packets.ResultSetHeader.toPacket(columns.length));
+  columns.forEach(function (column) {
+    connection.writePacket(Packets.ColumnDefinition.toPacket(column, connection.serverConfig.encoding));
+  });
+  this.writeEof();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.writeEof" id="apidoc.element.mysql2.Connection.prototype.writeEof">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeEof
+        <span class="apidocSignatureSpan">(warnings, statusFlags)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeEof = function (warnings, statusFlags) {
+  this.writePacket(Packets.EOF.toPacket(warnings, statusFlags));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.writeError" id="apidoc.element.mysql2.Connection.prototype.writeError">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeError
+        <span class="apidocSignatureSpan">(args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeError = function (args) {
+  // if we want to send error before initial hello was sent, use default encoding
+  var encoding = this.serverConfig ? this.serverConfig.encoding : &#x27;cesu8&#x27;;
+  this.writePacket(Packets.Error.toPacket(args, this.serverConfig.encoding));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.writeOk" id="apidoc.element.mysql2.Connection.prototype.writeOk">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeOk
+        <span class="apidocSignatureSpan">(args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeOk = function (args) {
+  if (!args) {
+    args = {affectedRows: 0};
+  }
+  this.writePacket(Packets.OK.toPacket(args, this.serverConfig.encoding));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.writePacket" id="apidoc.element.mysql2.Connection.prototype.writePacket">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writePacket
+        <span class="apidocSignatureSpan">(packet)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writePacket = function (packet) {
+  var MAX_PACKET_LENGTH = 16777215;
+  var length = packet.length();
+  var chunk, offset, header;
+
+  if (length &#x3c; MAX_PACKET_LENGTH) {
+    packet.writeHeader(this.sequenceId);
+    if (this.config.debug) {
+      console.log(this._internalId + &#x27; &#x27; + this.connectionId + &#x27; &#x3c;== &#x27; + this._command._commandName + &#x27;#&#x27; + this._command.stateName
+() + &#x27;(&#x27; + [this.sequenceId, packet._name, packet.length()].join(&#x27;,&#x27;) + &#x27;)&#x27;);
+      console.log(this._internalId + &#x27; &#x27; + this.connectionId + &#x27; &#x3c;== &#x27; + packet.buffer.toString(&#x27;hex&#x27;));
+    }
+    this._bumpSequenceId(1);
+    this.write(packet.buffer);
+  } else {
+    if (this.config.debug) {
+      console.log(this._internalId + &#x27; &#x27; + this.connectionId + &#x27; &#x3c;== Writing large packet, raw content not written:&#x27;);
+      console.log(this._internalId + &#x27; &#x27; + this.connectionId + &#x27; &#x3c;== &#x27; + this._command._commandName + &#x27;#&#x27; + this._command.stateName
+() + &#x27;(&#x27; + [this.sequenceId, packet._name, packet.length()].join(&#x27;,&#x27;) + &#x27;)&#x27;);
+    }
+    for (offset = 4; offset &#x3c; 4 + length; offset += MAX_PACKET_LENGTH) {
+      chunk = packet.buffer.slice(offset, offset + MAX_PACKET_LENGTH);
+      if (chunk.length === MAX_PACKET_LENGTH) {
+        header = Buffer.from([0xff, 0xff, 0xff, this.sequenceId]);
+      } else {
+        header = Buffer.from([chunk.length &#x26; 0xff, (chunk.length &#x3e;&#x3e; 8) &#x26; 0xff, (chunk.length &#x3e;&#x3e; 16) &#x26; 0xff, this.sequenceId]);
+      }
+      this._bumpSequenceId(1);
+      this.write(header);
+      this.write(chunk);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.writeTextResult" id="apidoc.element.mysql2.Connection.prototype.writeTextResult">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeTextResult
+        <span class="apidocSignatureSpan">(rows, columns)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeTextResult = function (rows, columns) {
+  var connection = this;
+  connection.writeColumns(columns);
+  rows.forEach(function (row) {
+    var arrayRow = new Array(columns.length);
+    columns.forEach(function (column) {
+      arrayRow.push(row[column.name]);
+    });
+    connection.writeTextRow(arrayRow);
+  });
+  connection.writeEof();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.Connection.prototype.writeTextRow" id="apidoc.element.mysql2.Connection.prototype.writeTextRow">
+        function <span class="apidocSignatureSpan">mysql2.Connection.prototype.</span>writeTextRow
+        <span class="apidocSignatureSpan">(column)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeTextRow = function (column) {
+  this.writePacket(Packets.TextRow.toPacket(column, this.serverConfig.encoding));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.auth_41" id="apidoc.module.mysql2.auth_41">module mysql2.auth_41</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.auth_41.calculateToken" id="apidoc.element.mysql2.auth_41.calculateToken">
+        function <span class="apidocSignatureSpan">mysql2.auth_41.</span>calculateToken
+        <span class="apidocSignatureSpan">(password, scramble1, scramble2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function token(password, scramble1, scramble2) {
+  // TODO: use buffers (not sure why strings here)
+  if (!password) {
+    return Buffer.alloc(0);
+  }
+  var stage1 = sha1(password);
+  return module.exports.calculateTokenFromPasswordSha(stage1, scramble1, scramble2);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.auth_41.calculateTokenFromPasswordSha" id="apidoc.element.mysql2.auth_41.calculateTokenFromPasswordSha">
+        function <span class="apidocSignatureSpan">mysql2.auth_41.</span>calculateTokenFromPasswordSha
+        <span class="apidocSignatureSpan">(passwordSha, scramble1, scramble2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">calculateTokenFromPasswordSha = function (passwordSha, scramble1, scramble2) {
+  var stage2 = sha1(passwordSha);
+  var stage3 = sha1(scramble1, scramble2, stage2);
+  return xor(stage3, passwordSha);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function token (password, scramble1, scramble2) {
+  // TODO: use buffers (not sure why strings here)
+  if (!password) {
+    return Buffer.alloc(0);
+  }
+  var stage1 = sha1(password);
+  return module.exports.<span class="apidocCodeKeywordSpan">calculateTokenFromPasswordSha</span>(stage1, scramble1, scramble2);
+}
+
+module.exports.calculateTokenFromPasswordSha = function (passwordSha, scramble1, scramble2) {
+  var stage2 = sha1(passwordSha);
+  var stage3 = sha1(scramble1, scramble2, stage2);
+  return xor(stage3, passwordSha);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.auth_41.doubleSha1" id="apidoc.element.mysql2.auth_41.doubleSha1">
+        function <span class="apidocSignatureSpan">mysql2.auth_41.</span>doubleSha1
+        <span class="apidocSignatureSpan">(password)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">doubleSha1 = function (password) {
+  return sha1(sha1(password));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.auth_41.verifyToken" id="apidoc.element.mysql2.auth_41.verifyToken">
+        function <span class="apidocSignatureSpan">mysql2.auth_41.</span>verifyToken
+        <span class="apidocSignatureSpan">(publicSeed1, publicSeed2, token, doubleSha)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">verifyToken = function (publicSeed1, publicSeed2, token, doubleSha) {
+  var hashStage1 = xor(token, sha1(publicSeed1, publicSeed2, doubleSha));
+  var candidateHash2 = sha1(hashStage1);
+  // TODO better way to compare buffers?
+  return candidateHash2.toString(&#x27;hex&#x27;) == doubleSha.toString(&#x27;hex&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.compressed_protocol" id="apidoc.module.mysql2.compressed_protocol">module mysql2.compressed_protocol</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.compressed_protocol.enableCompression" id="apidoc.element.mysql2.compressed_protocol.enableCompression">
+        function <span class="apidocSignatureSpan">mysql2.compressed_protocol.</span>enableCompression
+        <span class="apidocSignatureSpan">(connection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function enableCompression(connection) {
+  connection._lastWrittenPacketId = 0;
+  connection._lastReceivedPacketId = 0;
+
+  connection._handleCompressedPacket = handleCompressedPacket;
+  connection._inflatedPacketsParser = new PacketParser(function (p) {
+    connection.handlePacket(p);
+  }, 4);
+  connection._inflatedPacketsParser._lastPacket = 0;
+  connection.packetParser = new PacketParser(function (packet) {
+    connection._handleCompressedPacket(packet);
+  }, 7);
+
+  connection.writeUncompressed = connection.write;
+  connection.write = writeCompressed;
+
+  var seqqueue = require(&#x27;seq-queue&#x27;);
+  connection.inflateQueue = seqqueue.createQueue();
+  connection.deflateQueue = seqqueue.createQueue();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.connection_config" id="apidoc.module.mysql2.connection_config">module mysql2.connection_config</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.connection_config.connection_config" id="apidoc.element.mysql2.connection_config.connection_config">
+        function <span class="apidocSignatureSpan">mysql2.</span>connection_config
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ConnectionConfig(options) {
+  if (typeof options === &#x27;string&#x27;) {
+    options = ConnectionConfig.parseUrl(options);
+  }
+
+  this.isServer = options.isServer;
+  this.stream = options.stream;
+
+  this.host = options.host || &#x27;localhost&#x27;;
+  this.port = options.port || 3306;
+  this.localAddress = options.localAddress;
+  this.socketPath = options.socketPath;
+  this.user = options.user || undefined;
+  this.password = options.password || undefined;
+  this.passwordSha1 = options.passwordSha1 || undefined;
+  this.database = options.database;
+  this.connectTimeout = (options.connectTimeout === undefined)
+    ? (10 * 1000)
+    : options.connectTimeout;
+  this.insecureAuth = options.insecureAuth || false;
+  this.supportBigNumbers = options.supportBigNumbers || false;
+  this.bigNumberStrings = options.bigNumberStrings || false;
+  this.decimalNumbers = options.decimalNumbers || false;
+  this.dateStrings = options.dateStrings || false;
+  this.debug = options.debug;
+  this.trace = options.trace !== false;
+  this.stringifyObjects = options.stringifyObjects || false;
+  this.timezone = options.timezone || &#x27;local&#x27;;
+  this.queryFormat = options.queryFormat;
+  this.pool = options.pool || undefined;
+  this.ssl = (typeof options.ssl === &#x27;string&#x27;)
+    ? ConnectionConfig.getSSLProfile(options.ssl)
+    : (options.ssl || false);
+  this.multipleStatements = options.multipleStatements || false;
+  this.rowsAsArray = options.rowsAsArray || false;
+  this.namedPlaceholders = options.namedPlaceholders || false;
+  this.nestTables = (options.nestTables === undefined) ? undefined : options.nestTables;
+  this.typeCast = (options.typeCast === undefined)
+    ? true
+    : options.typeCast;
+
+  if (this.timezone[0] == &#x27; &#x27;) {
+    // &#x22;+&#x22; is a url encoded char for space so it
+    // gets translated to space when giving a
+    // connection string..
+    this.timezone = &#x27;+&#x27; + this.timezone.substr(1);
+  }
+
+  if (this.ssl) {
+    // Default rejectUnauthorized to true
+    this.ssl.rejectUnauthorized = this.ssl.rejectUnauthorized !== false;
+  }
+
+  this.maxPacketSize = 0;
+  this.charsetNumber = (options.charset)
+    ? ConnectionConfig.getCharsetNumber(options.charset)
+    : options.charsetNumber || Charsets.UTF8MB4_UNICODE_CI;
+
+  this.compress = options.compress || false;
+
+  this.authSwitchHandler = options.authSwitchHandler;
+
+  this.clientFlags = ConnectionConfig.mergeFlags(ConnectionConfig.getDefaultFlags(options),
+                                                 options.flags || &#x27;&#x27;);
+
+  this.connectAttributes = options.connectAttributes;
+  this.maxPreparedStatements = options.maxPreparedStatements || 16000;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.connection_config.getCharsetNumber" id="apidoc.element.mysql2.connection_config.getCharsetNumber">
+        function <span class="apidocSignatureSpan">mysql2.connection_config.</span>getCharsetNumber
+        <span class="apidocSignatureSpan">(charset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getCharsetNumber(charset) {
+  var num = Charsets[charset.toUpperCase()];
+
+  if (num === undefined) {
+    throw new TypeError(&#x27;Unknown charset \&#x27;&#x27; + charset + &#x27;\&#x27;&#x27;);
+  }
+
+  return num;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (this.ssl) {
+  // Default rejectUnauthorized to true
+  this.ssl.rejectUnauthorized = this.ssl.rejectUnauthorized !== false;
+}
+
+this.maxPacketSize = 0;
+this.charsetNumber = (options.charset)
+  ? ConnectionConfig.<span class="apidocCodeKeywordSpan">getCharsetNumber</span>(options.charset)
+  : options.charsetNumber || Charsets.UTF8MB4_UNICODE_CI;
+
+this.compress = options.compress || false;
+
+this.authSwitchHandler = options.authSwitchHandler;
+
+this.clientFlags = ConnectionConfig.mergeFlags(ConnectionConfig.getDefaultFlags(options),
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.connection_config.getDefaultFlags" id="apidoc.element.mysql2.connection_config.getDefaultFlags">
+        function <span class="apidocSignatureSpan">mysql2.connection_config.</span>getDefaultFlags
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getDefaultFlags = function (options) {
+  var defaultFlags = [&#x27;LONG_PASSWORD&#x27;, &#x27;FOUND_ROWS&#x27;, &#x27;LONG_FLAG&#x27;,
+    &#x27;CONNECT_WITH_DB&#x27;, &#x27;ODBC&#x27;, &#x27;LOCAL_FILES&#x27;,
+    &#x27;IGNORE_SPACE&#x27;, &#x27;PROTOCOL_41&#x27;, &#x27;IGNORE_SIGPIPE&#x27;,
+    &#x27;TRANSACTIONS&#x27;, &#x27;RESERVED&#x27;, &#x27;SECURE_CONNECTION&#x27;,
+    &#x27;MULTI_RESULTS&#x27;, &#x27;TRANSACTIONS&#x27;, &#x27;SESSION_TRACK&#x27;];
+
+  if (options &#x26;&#x26; options.multipleStatements) {
+    defaultFlags.push(&#x27;MULTI_STATEMENTS&#x27;);
+  }
+
+  if (options &#x26;&#x26; options.authSwitchHandler) {
+    defaultFlags.push(&#x27;PLUGIN_AUTH&#x27;);
+    defaultFlags.push(&#x27;PLUGIN_AUTH_LENENC_CLIENT_DATA&#x27;);
+  }
+
+  if (options &#x26;&#x26; options.connectAttributes) {
+    defaultFlags.push(&#x27;CONNECT_ATTRS&#x27;);
+  }
+
+  return defaultFlags;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    ? ConnectionConfig.getCharsetNumber(options.charset)
+    : options.charsetNumber || Charsets.UTF8MB4_UNICODE_CI;
+
+  this.compress = options.compress || false;
+
+  this.authSwitchHandler = options.authSwitchHandler;
+
+  this.clientFlags = ConnectionConfig.mergeFlags(ConnectionConfig.<span class="apidocCodeKeywordSpan">getDefaultFlags</span>(options
+),
+                                                 options.flags || &#x27;&#x27;);
+
+  this.connectAttributes = options.connectAttributes;
+  this.maxPreparedStatements = options.maxPreparedStatements || 16000;
+}
+
+ConnectionConfig.mergeFlags = function (default_flags, user_flags) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.connection_config.getSSLProfile" id="apidoc.element.mysql2.connection_config.getSSLProfile">
+        function <span class="apidocSignatureSpan">mysql2.connection_config.</span>getSSLProfile
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getSSLProfile(name) {
+  if (!SSLProfiles) {
+    SSLProfiles = require(&#x27;./constants/ssl_profiles.js&#x27;);
+  }
+
+  var ssl = SSLProfiles[name];
+
+  if (ssl === undefined) {
+    throw new TypeError(&#x27;Unknown SSL profile \&#x27;&#x27; + name + &#x27;\&#x27;&#x27;);
+  }
+
+  return ssl;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.debug = options.debug;
+this.trace = options.trace !== false;
+this.stringifyObjects = options.stringifyObjects || false;
+this.timezone = options.timezone || &#x27;local&#x27;;
+this.queryFormat = options.queryFormat;
+this.pool = options.pool || undefined;
+this.ssl = (typeof options.ssl === &#x27;string&#x27;)
+  ? ConnectionConfig.<span class="apidocCodeKeywordSpan">getSSLProfile</span>(options.ssl)
+  : (options.ssl || false);
+this.multipleStatements = options.multipleStatements || false;
+this.rowsAsArray = options.rowsAsArray || false;
+this.namedPlaceholders = options.namedPlaceholders || false;
+this.nestTables = (options.nestTables === undefined) ? undefined : options.nestTables;
+this.typeCast = (options.typeCast === undefined)
+  ? true
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.connection_config.mergeFlags" id="apidoc.element.mysql2.connection_config.mergeFlags">
+        function <span class="apidocSignatureSpan">mysql2.connection_config.</span>mergeFlags
+        <span class="apidocSignatureSpan">(default_flags, user_flags)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mergeFlags = function (default_flags, user_flags) {
+  var flags = 0x0, i;
+
+  user_flags = (user_flags || &#x27;&#x27;).toUpperCase().split(/\s*,+\s*/);
+
+  // add default flags unless &#x22;blacklisted&#x22;
+  for (i in default_flags) {
+    if (user_flags.indexOf(&#x27;-&#x27; + default_flags[i]) &#x3e;= 0) {
+      continue;
+    }
+
+    flags |= ClientConstants[default_flags[i]] || 0x0;
+  }
+  // add user flags unless already already added
+  for (i in user_flags) {
+    if (user_flags[i][0] == &#x27;-&#x27;) {
+      continue;
+    }
+
+    if (default_flags.indexOf(user_flags[i]) &#x3e;= 0) {
+      continue;
+    }
+
+    flags |= ClientConstants[user_flags[i]] || 0x0;
+  }
+
+  return flags;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    ? ConnectionConfig.getCharsetNumber(options.charset)
+    : options.charsetNumber || Charsets.UTF8MB4_UNICODE_CI;
+
+  this.compress = options.compress || false;
+
+  this.authSwitchHandler = options.authSwitchHandler;
+
+  this.clientFlags = ConnectionConfig.<span class="apidocCodeKeywordSpan">mergeFlags</span>(ConnectionConfig.getDefaultFlags(options
+),
+                                                 options.flags || &#x27;&#x27;);
+
+  this.connectAttributes = options.connectAttributes;
+  this.maxPreparedStatements = options.maxPreparedStatements || 16000;
+}
+
+ConnectionConfig.mergeFlags = function (default_flags, user_flags) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.connection_config.parseUrl" id="apidoc.element.mysql2.connection_config.parseUrl">
+        function <span class="apidocSignatureSpan">mysql2.connection_config.</span>parseUrl
+        <span class="apidocSignatureSpan">(url)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseUrl = function (url) {
+  url = urlParse(url, true);
+
+  var options = {
+    host     : url.hostname,
+    port     : url.port,
+    database : url.pathname.substr(1)
+  };
+
+  if (url.auth) {
+    var auth = url.auth.split(&#x27;:&#x27;);
+    options.user = auth[0];
+    options.password = auth[1];
+  }
+
+  if (url.query) {
+    for (var key in url.query) {
+      var value = url.query[key];
+
+      try {
+        // Try to parse this as a JSON expression first
+        options[key] = JSON.parse(value);
+      } catch (err) {
+        // Otherwise assume it is a plain string
+        options[key] = value;
+      }
+    }
+  }
+
+  return options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var ClientConstants = require(&#x27;./constants/client&#x27;);
+var Charsets = require(&#x27;./constants/charsets&#x27;);
+var SSLProfiles = null;
+
+module.exports = ConnectionConfig;
+function ConnectionConfig (options) {
+if (typeof options === &#x27;string&#x27;) {
+  options = ConnectionConfig.<span class="apidocCodeKeywordSpan">parseUrl</span>(options);
+}
+
+this.isServer = options.isServer;
+this.stream = options.stream;
+
+this.host = options.host || &#x27;localhost&#x27;;
+this.port = options.port || 3306;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.helpers" id="apidoc.module.mysql2.helpers">module mysql2.helpers</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.helpers.srcEscape" id="apidoc.element.mysql2.helpers.srcEscape">
+        function <span class="apidocSignatureSpan">mysql2.helpers.</span>srcEscape
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function srcEscape(str) {
+  var a = {};
+  a[str] = 1;
+  return JSON.stringify(a).slice(1, -3);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.packet_parser" id="apidoc.module.mysql2.packet_parser">module mysql2.packet_parser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.packet_parser.packet_parser" id="apidoc.element.mysql2.packet_parser.packet_parser">
+        function <span class="apidocSignatureSpan">mysql2.</span>packet_parser
+        <span class="apidocSignatureSpan">(onPacket, packetHeaderLength)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PacketParser(onPacket, packetHeaderLength)
+{
+  // 4 for normal packets, 7 for comprssed protocol packets
+  if (typeof packetHeaderLength == &#x27;undefined&#x27;) {
+    packetHeaderLength = 4;
+  }
+  // array of last payload chunks
+  // only used when current payload is not complete
+  this.buffer = [];
+  // total length of chunks on buffer
+  this.bufferLength = 0;
+  this.packetHeaderLength = packetHeaderLength;
+
+  // incomplete header state: number of header bytes received
+  this.headerLen = 0;
+
+  // expected payload length
+  this.length = 0;
+
+  this.largePacketParts = [];
+  this.firstPacketSequenceId = 0;
+
+  this.onPacket = onPacket;
+  this.execute = PacketParser.prototype.executeStart;
+  this._flushLargePacket = packetHeaderLength == 7 ?
+    this._flushLargePacket7 : this._flushLargePacket4;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.packet_parser.prototype" id="apidoc.module.mysql2.packet_parser.prototype">module mysql2.packet_parser.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.packet_parser.prototype._flushLargePacket4" id="apidoc.element.mysql2.packet_parser.prototype._flushLargePacket4">
+        function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>_flushLargePacket4
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _flushLargePacket() {
+  var numPackets = this.largePacketParts.length;
+  this.largePacketParts.unshift(Buffer.from([0, 0, 0, 0])); // insert header
+  var body = Buffer.concat(this.largePacketParts);
+  var packet = new Packet(this.firstPacketSequenceId, body, 0, body.length);
+  this.largePacketParts.length = 0;
+  packet.numPackets = numPackets;
+  this.onPacket(packet);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.packet_parser.prototype._flushLargePacket7" id="apidoc.element.mysql2.packet_parser.prototype._flushLargePacket7">
+        function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>_flushLargePacket7
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _flushLargePacket() {
+  var numPackets = this.largePacketParts.length;
+  this.largePacketParts.unshift(Buffer.from([0, 0, 0, 0, 0, 0, 0])); // insert header
+  var body = Buffer.concat(this.largePacketParts);
+  this.largePacketParts.length = 0;
+  var packet = new Packet(this.firstPacketSequenceId, body, 0, body.length);
+  packet.numPackets = numPackets;
+  this.onPacket(packet);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.packet_parser.prototype.executeHeader2" id="apidoc.element.mysql2.packet_parser.prototype.executeHeader2">
+        function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>executeHeader2
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function executeHeader2(chunk) {
+  this.length += chunk[0] &#x3c;&#x3c; 8;
+  if (chunk.length &#x3e; 1) {
+    this.length += chunk[1] &#x3c;&#x3c; 16;
+    this.execute = PacketParser.prototype.executePayload;
+    return this.executePayload(chunk.slice(2));
+  } else {
+    this.execute = PacketParser.prototype.executeHeader3;
+  }
+  return null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.packet_parser.prototype.executeHeader3" id="apidoc.element.mysql2.packet_parser.prototype.executeHeader3">
+        function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>executeHeader3
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function executeHeader3(chunk) {
+  this.length += chunk[0] &#x3c;&#x3c; 16;
+  this.execute = PacketParser.prototype.executePayload;
+  return this.executePayload(chunk.slice(1));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.packet_parser.prototype.executePayload" id="apidoc.element.mysql2.packet_parser.prototype.executePayload">
+        function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>executePayload
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function executePayload(chunk) {
+
+  var start = 0;
+  var end = chunk.length;
+  var remainingPayload = this.length - this.bufferLength + this.packetHeaderLength - 3;
+
+  if (end - start &#x3e;= remainingPayload) { // last chunk for payload
+    var payload = Buffer.allocUnsafe(this.length + this.packetHeaderLength);
+    var offset = 3;
+    for (var i = 0; i &#x3c; this.buffer.length; ++i) {
+      this.buffer[i].copy(payload, offset);
+      offset += this.buffer[i].length;
+    }
+    chunk.copy(payload, offset, start, start + remainingPayload);
+    var sequenceId = payload[3];
+    if (this.length &#x3c; MAX_PACKET_LENGTH &#x26;&#x26; this.largePacketParts.length === 0) {
+      this.onPacket(new Packet(sequenceId, payload, 0, this.length + this.packetHeaderLength));
+    } else {
+      // first large packet - remember it&#x27;s id
+      if (this.largePacketParts.length === 0) {
+        this.firstPacketSequenceId = sequenceId;
+      }
+      this.largePacketParts.push(payload.slice(this.packetHeaderLength, this.packetHeaderLength + this.length));
+      if (this.length &#x3c; MAX_PACKET_LENGTH) {
+        this._flushLargePacket();
+      }
+    }
+    this.buffer = [];
+    this.bufferLength = 0;
+    this.execute = PacketParser.prototype.executeStart;
+    start += remainingPayload;
+    if (end - start &#x3e; 0) {
+      return this.execute(chunk.slice(start, end));
+    }
+  } else {
+    this.buffer.push(chunk);
+    this.bufferLength += chunk.length;
+  }
+  return null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+PacketParser.prototype.executeHeader2 = function executeHeader2 (chunk) {
+  this.length += chunk[0] &#x3c;&#x3c; 8;
+  if (chunk.length &#x3e; 1) {
+    this.length += chunk[1] &#x3c;&#x3c; 16;
+    this.execute = PacketParser.prototype.executePayload;
+    return this.<span class="apidocCodeKeywordSpan">executePayload</span>(chunk.slice(2));
+  } else {
+    this.execute = PacketParser.prototype.executeHeader3;
+  }
+  return null;
+};
+
+PacketParser.prototype.executeHeader3 = function executeHeader3 (chunk) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.packet_parser.prototype.executeStart" id="apidoc.element.mysql2.packet_parser.prototype.executeStart">
+        function <span class="apidocSignatureSpan">mysql2.packet_parser.prototype.</span>executeStart
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function executeStart(chunk) {
+  var start = 0;
+  var end = chunk.length;
+
+  while (end - start &#x3e;= 3) {
+    this.length = readPacketLength(chunk, start);
+    if (end - start &#x3e;= this.length + this.packetHeaderLength) { // at least one full packet
+      var sequenceId = chunk[start + 3];
+      if (this.length &#x3c; MAX_PACKET_LENGTH &#x26;&#x26; this.largePacketParts.length === 0) {
+        this.onPacket(new Packet(sequenceId, chunk, start, start + this.packetHeaderLength + this.length));
+      } else {
+        // first large packet - remember it&#x27;s id
+        if (this.largePacketParts.length === 0) {
+          this.firstPacketSequenceId = sequenceId;
+        }
+        this.largePacketParts.push(chunk.slice(start + this.packetHeaderLength, start + this.packetHeaderLength + this.length));
+        if (this.length &#x3c; MAX_PACKET_LENGTH) {
+          this._flushLargePacket();
+        }
+      }
+      start += this.packetHeaderLength + this.length;
+    } else { // payload is incomplete
+      this.buffer = [chunk.slice(start + 3, end)];
+      this.bufferLength = end - start - 3;
+      this.execute = PacketParser.prototype.executePayload;
+      return;
+    }
+  }
+  if (end - start &#x3e; 0) { // there is start of length header, but it&#x27;s not full 3 bytes
+    this.headerLen = end - start; // 1 or 2 bytes
+    this.length = chunk[start];
+    if (this.headerLen == 2) {
+      this.length = chunk[start] + (chunk[start + 1] &#x3c;&#x3c; 8);
+      this.execute = PacketParser.prototype.executeHeader3;
+    } else {
+      this.execute = PacketParser.prototype.executeHeader2;
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.pool" id="apidoc.module.mysql2.pool">module mysql2.pool</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool.pool" id="apidoc.element.mysql2.pool.pool">
+        function <span class="apidocSignatureSpan">mysql2.</span>pool
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Pool(options) {
+  EventEmitter.call(this);
+  this.config = options.config;
+  this.config.connectionConfig.pool = this;
+
+  this._allConnections = new Queue();
+  this._freeConnections = new Queue();
+  this._connectionQueue = new Queue();
+  this._closed = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool.super_" id="apidoc.element.mysql2.pool.super_">
+        function <span class="apidocSignatureSpan">mysql2.pool.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.pool.prototype" id="apidoc.module.mysql2.pool.prototype">module mysql2.pool.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool.prototype._removeConnection" id="apidoc.element.mysql2.pool.prototype._removeConnection">
+        function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>_removeConnection
+        <span class="apidocSignatureSpan">(connection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_removeConnection = function (connection) {
+
+  // Remove connection from all connections
+  spliceConnection(this._allConnections, connection);
+
+  // Remove connection from free connections
+  spliceConnection(this._freeConnections, connection);
+
+  this.releaseConnection(connection);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!this._pool || this._pool._closed) {
+    return;
+  }
+
+  var pool = this._pool;
+  this._pool = null;
+
+  pool.<span class="apidocCodeKeywordSpan">_removeConnection</span>(this);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool.prototype.end" id="apidoc.element.mysql2.pool.prototype.end">
+        function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>end
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function (cb) {
+  this._closed = true;
+
+  if (typeof cb != &#x27;function&#x27;) {
+    cb = function (err) {
+      if (err) {
+        throw err;
+      }
+    };
+  }
+
+  var calledBack = false;
+  var closedConnections = 0;
+  var connection;
+
+  var endCB = function (err) {
+    if (calledBack) {
+      return;
+    }
+
+    if (err || ++closedConnections &#x3e;= this._allConnections.length) {
+      calledBack = true;
+      cb(err);
+      return;
+    }
+  }.bind(this);
+
+  if (this._allConnections.length === 0) {
+    endCB();
+    return;
+  }
+
+  for (var i = 0; i &#x3c; this._allConnections.length; i++) {
+    connection = this._allConnections.get(i);
+    connection._realEnd(endCB);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (this._closed) {
+  return;
+}
+
+this._closed = true;
+
+for (var id in this._nodes) {
+  this._nodes[id].pool.<span class="apidocCodeKeywordSpan">end</span>();
+}
+};
+
+PoolCluster.prototype._findNodeIds = function (pattern) {
+if (typeof this._findCaches[pattern] !== &#x27;undefined&#x27;) {
+  return this._findCaches[pattern];
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool.prototype.escape" id="apidoc.element.mysql2.pool.prototype.escape">
+        function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>escape
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escape = function (value) {
+  return mysql.escape(value, this.config.connectionConfig.stringifyObjects, this.config.connectionConfig.timezone);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Remove connection from free connections
+  spliceConnection(this._freeConnections, connection);
+
+  this.releaseConnection(connection);
+};
+
+Pool.prototype.escape = function (value) {
+  return mysql.<span class="apidocCodeKeywordSpan">escape</span>(value, this.config.connectionConfig.stringifyObjects, this.config
+.connectionConfig.timezone);
+};
+
+Pool.prototype.escapeId = function escapeId (value) {
+  return mysql.escapeId(value, false);
+};
+
+function spliceConnection (queue, connection) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool.prototype.escapeId" id="apidoc.element.mysql2.pool.prototype.escapeId">
+        function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>escapeId
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function escapeId(value) {
+  return mysql.escapeId(value, false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Pool.prototype.escape = function (value) {
+return mysql.escape(value, this.config.connectionConfig.stringifyObjects, this.config.connectionConfig.timezone);
+};
+
+Pool.prototype.escapeId = function escapeId (value) {
+return mysql.<span class="apidocCodeKeywordSpan">escapeId</span>(value, false);
+};
+
+function spliceConnection (queue, connection) {
+var len = queue.length;
+if (len) {
+  if (queue.get(len - 1) === connection) {
+    queue.pop();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool.prototype.execute" id="apidoc.element.mysql2.pool.prototype.execute">
+        function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>execute
+        <span class="apidocSignatureSpan">(sql, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">execute = function (sql, values, cb) {
+  var useNamedPlaceholders = this.config.connectionConfig.namedPlaceholders;
+
+  this.getConnection(function (err, conn) {
+    if (err) {
+      return cb(err);
+    }
+
+    conn.config.namedPlaceholders = useNamedPlaceholders;
+    return conn.execute(sql, values, function () {
+      conn.release();
+      cb.apply(this, arguments);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// get the client
+var mysql = require(&#x27;mysql2&#x27;);
+
+// create the connection to database
+var connection = mysql.createConnection({host:&#x27;localhost&#x27;, user: &#x27;root&#x27;, database: &#x27;test&#x27;});
+
+// execute will internally call prepare and query
+connection.<span class="apidocCodeKeywordSpan">execute</span>(&#x27;SELECT * FROM `table` WHERE `name` = ? AND `age` &#x3e; ?&#x27
+;, [&#x27;Rick C-137&#x27;, 53], function (err, results, fields) {
+  console.log(results); // results contains rows returned by server
+  console.log(fields); // fields contains extra meta data about results, if available
+
+  // If you execute same statement again, it will be picked form a LRU cache
+  // which will save query preparation time and give better performance
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool.prototype.getConnection" id="apidoc.element.mysql2.pool.prototype.getConnection">
+        function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>getConnection
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getConnection = function (cb) {
+  if (this._closed) {
+    return process.nextTick(function () {
+      return cb(new Error(&#x27;Pool is closed.&#x27;));
+    });
+  }
+
+  var connection;
+
+  if (this._freeConnections.length &#x3e; 0) {
+    connection = this._freeConnections.shift();
+
+    return process.nextTick(function () {
+      return cb(null, connection);
+    });
+  }
+
+  if (this.config.connectionLimit === 0 || this._allConnections.length &#x3c; this.config.connectionLimit) {
+    connection = new PoolConnection(this, {config: this.config.connectionConfig});
+
+    this._allConnections.push(connection);
+
+    return connection.connect(function (err) {
+      if (this._closed) {
+        return cb(new Error(&#x27;Pool is closed.&#x27;));
+      }
+      if (err) {
+        return cb(err);
+      }
+
+      this.emit(&#x27;connection&#x27;, connection);
+      return cb(null, connection);
+    }.bind(this));
+  }
+
+  if (!this.config.waitForConnections) {
+    return process.nextTick(function () {
+      return cb(new Error(&#x27;No connections available.&#x27;));
+    });
+  }
+
+  if (this.config.queueLimit &#x26;&#x26; this._connectionQueue.length &#x3e;= this.config.queueLimit) {
+    return cb(new Error(&#x27;Queue limit reached.&#x27;));
+  }
+
+  this.emit(&#x27;enqueue&#x27;);
+  return this._connectionQueue.push(cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+};
+
+Pool.prototype.query = function (sql, values, cb) {
+var cmdQuery = Connection.createQuery(sql, values, cb, this.config.connectionConfig);
+cmdQuery.namedPlaceholders = this.config.connectionConfig.namedPlaceholders;
+
+this.<span class="apidocCodeKeywordSpan">getConnection</span>(function (err, conn) {
+  if (err) {
+    if (typeof cmdQuery.onResult === &#x27;function&#x27;) {
+      cmdQuery.onResult(err);
+    } else {
+      cmdQuery.emit(&#x27;error&#x27;, err);
+    }
+    return;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool.prototype.query" id="apidoc.element.mysql2.pool.prototype.query">
+        function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>query
+        <span class="apidocSignatureSpan">(sql, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">query = function (sql, values, cb) {
+  var cmdQuery = Connection.createQuery(sql, values, cb, this.config.connectionConfig);
+  cmdQuery.namedPlaceholders = this.config.connectionConfig.namedPlaceholders;
+
+  this.getConnection(function (err, conn) {
+    if (err) {
+      if (typeof cmdQuery.onResult === &#x27;function&#x27;) {
+        cmdQuery.onResult(err);
+      } else {
+        cmdQuery.emit(&#x27;error&#x27;, err);
+      }
+      return;
+    }
+
+    conn.query(cmdQuery).once(&#x27;end&#x27;, function () {
+      conn.release();
+    });
+  });
+  return cmdQuery;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// get the client
+var mysql = require(&#x27;mysql2&#x27;);
+
+// create the connection to database
+var connection = mysql.createConnection({host:&#x27;localhost&#x27;, user: &#x27;root&#x27;, database: &#x27;test&#x27;});
+
+// simple query
+connection.<span class="apidocCodeKeywordSpan">query</span>(&#x27;SELECT * FROM `table` WHERE `name` = &#x22;Page&#x22; AND `age
+` &#x3e; 45&#x27;, function (err, results, fields) {
+console.log(results); // results contains rows returned by server
+console.log(fields); // fields contains extra meta data about results, if available
+});
+
+// with placeholder
+connection.query(&#x27;SELECT * FROM `table` WHERE `name` = ? AND `age` &#x3e; ?&#x27;, [&#x27;Page&#x27;, 45], function (err, results
+) {
+console.log(results);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool.prototype.releaseConnection" id="apidoc.element.mysql2.pool.prototype.releaseConnection">
+        function <span class="apidocSignatureSpan">mysql2.pool.prototype.</span>releaseConnection
+        <span class="apidocSignatureSpan">(connection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">releaseConnection = function (connection) {
+  var cb;
+
+  if (!connection._pool) {
+    // The connection has been removed from the pool and is no longer good.
+    if (this._connectionQueue.length) {
+      cb = this._connectionQueue.shift();
+
+      process.nextTick(this.getConnection.bind(this, cb));
+    }
+  } else if (this._connectionQueue.length) {
+    cb = this._connectionQueue.shift();
+
+    process.nextTick(cb.bind(null, null, connection));
+  } else {
+    this._freeConnections.push(connection);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  // Remove connection from all connections
+  spliceConnection(this._allConnections, connection);
+
+  // Remove connection from free connections
+  spliceConnection(this._freeConnections, connection);
+
+  this.<span class="apidocCodeKeywordSpan">releaseConnection</span>(connection);
+};
+
+Pool.prototype.escape = function (value) {
+  return mysql.escape(value, this.config.connectionConfig.stringifyObjects, this.config.connectionConfig.timezone);
+};
+
+Pool.prototype.escapeId = function escapeId (value) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.pool_cluster" id="apidoc.module.mysql2.pool_cluster">module mysql2.pool_cluster</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.pool_cluster" id="apidoc.element.mysql2.pool_cluster.pool_cluster">
+        function <span class="apidocSignatureSpan">mysql2.</span>pool_cluster
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PoolCluster(config) {
+  EventEmitter.call(this);
+
+  config = config || {};
+  this._canRetry = typeof config.canRetry === &#x27;undefined&#x27; ? true : config.canRetry;
+  this._removeNodeErrorCount = config.removeNodeErrorCount || 5;
+  this._defaultSelector = config.defaultSelector || &#x27;RR&#x27;;
+
+  this._closed = false;
+  this._lastId = 0;
+  this._nodes = {};
+  this._serviceableNodeIds = [];
+  this._namespaces = {};
+  this._findCaches = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.super_" id="apidoc.element.mysql2.pool_cluster.super_">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.pool_cluster.prototype" id="apidoc.module.mysql2.pool_cluster.prototype">module mysql2.pool_cluster.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.prototype._clearFindCaches" id="apidoc.element.mysql2.pool_cluster.prototype._clearFindCaches">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_clearFindCaches
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_clearFindCaches = function () {
+  this._findCaches = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    id: id,
+    errorCount: 0,
+    pool: new Pool({config: new PoolConfig(config)})
+  };
+
+  this._serviceableNodeIds.push(id);
+
+  this.<span class="apidocCodeKeywordSpan">_clearFindCaches</span>();
+}
+};
+
+PoolCluster.prototype.getConnection = function (pattern, selector, cb) {
+var namespace;
+if (typeof pattern === &#x27;function&#x27;) {
+  cb = pattern;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.prototype._decreaseErrorCount" id="apidoc.element.mysql2.pool_cluster.prototype._decreaseErrorCount">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_decreaseErrorCount
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_decreaseErrorCount = function (node) {
+  if (node.errorCount &#x3e; 0) {
+    --node.errorCount;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      if (self._canRetry) {
+        console.warn(&#x27;[Error] PoolCluster : &#x27; + err);
+        return cb(null, &#x27;retry&#x27;);
+      } else {
+        return cb(err);
+      }
+    } else {
+      self.<span class="apidocCodeKeywordSpan">_decreaseErrorCount</span>(node);
+    }
+
+    connection._clusterId = node.id;
+
+    return cb(null, connection);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.prototype._findNodeIds" id="apidoc.element.mysql2.pool_cluster.prototype._findNodeIds">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_findNodeIds
+        <span class="apidocSignatureSpan">(pattern)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_findNodeIds = function (pattern) {
+  if (typeof this._findCaches[pattern] !== &#x27;undefined&#x27;) {
+    return this._findCaches[pattern];
+  }
+
+  var foundNodeIds;
+
+  if (pattern === &#x27;*&#x27;) { // all
+    foundNodeIds = this._serviceableNodeIds;
+  } else if (this._serviceableNodeIds.indexOf(pattern) != -1) { // one
+    foundNodeIds = [pattern];
+  } else { // wild matching
+    var keyword = pattern.substring(pattern.length - 1, 0);
+
+    foundNodeIds = this._serviceableNodeIds.filter(function (id) {
+      return id.indexOf(keyword) === 0;
+    });
+  }
+
+  this._findCaches[pattern] = foundNodeIds;
+
+  return foundNodeIds;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  return cb(null, connection);
+}.bind(this));
+};
+
+PoolNamespace.prototype._getClusterNode = function () {
+var foundNodeIds = this._cluster.<span class="apidocCodeKeywordSpan">_findNodeIds</span>(this._pattern);
+
+if (foundNodeIds.length === 0) {
+  return null;
+}
+
+var nodeId = (foundNodeIds.length === 1) ? foundNodeIds[0] : this._selector(foundNodeIds);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.prototype._getConnection" id="apidoc.element.mysql2.pool_cluster.prototype._getConnection">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_getConnection
+        <span class="apidocSignatureSpan">(node, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getConnection = function (node, cb) {
+  var self = this;
+
+  node.pool.getConnection(function (err, connection) {
+    if (err) {
+      self._increaseErrorCount(node);
+
+      if (self._canRetry) {
+        console.warn(&#x27;[Error] PoolCluster : &#x27; + err);
+        return cb(null, &#x27;retry&#x27;);
+      } else {
+        return cb(err);
+      }
+    } else {
+      self._decreaseErrorCount(node);
+    }
+
+    connection._clusterId = node.id;
+
+    return cb(null, connection);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+PoolNamespace.prototype.getConnection = function (cb) {
+  var clusterNode = this._getClusterNode();
+
+  if (clusterNode === null) {
+return cb(new Error(&#x27;Pool does Not exists.&#x27;));
+  }
+
+  return this._cluster.<span class="apidocCodeKeywordSpan">_getConnection</span>(clusterNode, function (err, connection) {
+if (err) {
+  return cb(err);
+}
+
+if (connection === &#x27;retry&#x27;) {
+  return this.getConnection(cb);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.prototype._getNode" id="apidoc.element.mysql2.pool_cluster.prototype._getNode">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_getNode
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getNode = function (id) {
+  return this._nodes[id] || null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  if (foundNodeIds.length === 0) {
+    return null;
+  }
+
+  var nodeId = (foundNodeIds.length === 1) ? foundNodeIds[0] : this._selector(foundNodeIds);
+
+  return this._cluster.<span class="apidocCodeKeywordSpan">_getNode</span>(nodeId);
+};
+
+/**
+ * Selector
+ */
+var Selector = {};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.prototype._increaseErrorCount" id="apidoc.element.mysql2.pool_cluster.prototype._increaseErrorCount">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>_increaseErrorCount
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_increaseErrorCount = function (node) {
+  if (++node.errorCount &#x3e;= this._removeNodeErrorCount) {
+    var index = this._serviceableNodeIds.indexOf(node.id);
+    if (index !== -1) {
+      this._serviceableNodeIds.splice(index, 1);
+      delete this._nodes[node.id];
+
+      this._clearFindCaches();
+
+      node.pool.end();
+
+      this.emit(&#x27;remove&#x27;, node.id);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+PoolCluster.prototype._getConnection = function (node, cb) {
+  var self = this;
+
+  node.pool.getConnection(function (err, connection) {
+    if (err) {
+self.<span class="apidocCodeKeywordSpan">_increaseErrorCount</span>(node);
+
+if (self._canRetry) {
+  console.warn(&#x27;[Error] PoolCluster : &#x27; + err);
+  return cb(null, &#x27;retry&#x27;);
+} else {
+  return cb(err);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.prototype.add" id="apidoc.element.mysql2.pool_cluster.prototype.add">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>add
+        <span class="apidocSignatureSpan">(id, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (id, config) {
+  if (typeof id === &#x27;object&#x27;) {
+    config = id;
+    id = &#x27;CLUSTER::&#x27; + (++this._lastId);
+  }
+
+  if (typeof this._nodes[id] === &#x27;undefined&#x27;) {
+    this._nodes[id] = {
+      id: id,
+      errorCount: 0,
+      pool: new Pool({config: new PoolConfig(config)})
+    };
+
+    this._serviceableNodeIds.push(id);
+
+    this._clearFindCaches();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.prototype.end" id="apidoc.element.mysql2.pool_cluster.prototype.end">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>end
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function () {
+  if (this._closed) {
+    return;
+  }
+
+  this._closed = true;
+
+  for (var id in this._nodes) {
+    this._nodes[id].pool.end();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (this._closed) {
+  return;
+}
+
+this._closed = true;
+
+for (var id in this._nodes) {
+  this._nodes[id].pool.<span class="apidocCodeKeywordSpan">end</span>();
+}
+};
+
+PoolCluster.prototype._findNodeIds = function (pattern) {
+if (typeof this._findCaches[pattern] !== &#x27;undefined&#x27;) {
+  return this._findCaches[pattern];
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.prototype.getConnection" id="apidoc.element.mysql2.pool_cluster.prototype.getConnection">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>getConnection
+        <span class="apidocSignatureSpan">(pattern, selector, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getConnection = function (pattern, selector, cb) {
+  var namespace;
+  if (typeof pattern === &#x27;function&#x27;) {
+    cb = pattern;
+    namespace = this.of();
+  } else {
+    if (typeof selector === &#x27;function&#x27;) {
+      cb = selector;
+      selector = this._defaultSelector;
+    }
+
+    namespace = this.of(pattern, selector);
+  }
+
+  namespace.getConnection(cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+};
+
+Pool.prototype.query = function (sql, values, cb) {
+var cmdQuery = Connection.createQuery(sql, values, cb, this.config.connectionConfig);
+cmdQuery.namedPlaceholders = this.config.connectionConfig.namedPlaceholders;
+
+this.<span class="apidocCodeKeywordSpan">getConnection</span>(function (err, conn) {
+  if (err) {
+    if (typeof cmdQuery.onResult === &#x27;function&#x27;) {
+      cmdQuery.onResult(err);
+    } else {
+      cmdQuery.emit(&#x27;error&#x27;, err);
+    }
+    return;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_cluster.prototype.of" id="apidoc.element.mysql2.pool_cluster.prototype.of">
+        function <span class="apidocSignatureSpan">mysql2.pool_cluster.prototype.</span>of
+        <span class="apidocSignatureSpan">(pattern, selector)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">of = function (pattern, selector) {
+  pattern = pattern || &#x27;*&#x27;;
+
+  selector = selector || this._defaultSelector;
+  selector = selector.toUpperCase();
+  if (typeof Selector[selector] === &#x27;undefined&#x27;) {
+    selector = this._defaultSelector;
+  }
+
+  var key = pattern + selector;
+
+  if (typeof this._namespaces[key] === &#x27;undefined&#x27;) {
+    this._namespaces[key] = new PoolNamespace(this, pattern, selector);
+  }
+
+  return this._namespaces[key];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+};
+
+PoolCluster.prototype.getConnection = function (pattern, selector, cb) {
+  var namespace;
+  if (typeof pattern === &#x27;function&#x27;) {
+cb = pattern;
+namespace = this.<span class="apidocCodeKeywordSpan">of</span>();
+  } else {
+if (typeof selector === &#x27;function&#x27;) {
+  cb = selector;
+  selector = this._defaultSelector;
+}
+
+namespace = this.of(pattern, selector);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.pool_connection" id="apidoc.module.mysql2.pool_connection">module mysql2.pool_connection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_connection.pool_connection" id="apidoc.element.mysql2.pool_connection.pool_connection">
+        function <span class="apidocSignatureSpan">mysql2.</span>pool_connection
+        <span class="apidocSignatureSpan">(pool, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PoolConnection(pool, options) {
+  Connection.call(this, options);
+  this._pool = pool;
+
+  // When a fatal error occurs the connection&#x27;s protocol ends, which will cause
+  // the connection to end as well, thus we only need to watch for the end event
+  // and we will be notified of disconnects.
+  var connection = this;
+  this.on(&#x27;end&#x27;, function (err) { this._removeFromPool(); });
+  this.on(&#x27;error&#x27;, function (err) { this._removeFromPool(); });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_connection.statementKey" id="apidoc.element.mysql2.pool_connection.statementKey">
+        function <span class="apidocSignatureSpan">mysql2.pool_connection.</span>statementKey
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">statementKey = function (options) {
+  return (typeof options.nestTables) +
+    &#x27;/&#x27; + options.nestTables + &#x27;/&#x27; + options.rowsAsArray + options.sql;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_connection.super_" id="apidoc.element.mysql2.pool_connection.super_">
+        function <span class="apidocSignatureSpan">mysql2.pool_connection.</span>super_
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Connection(opts)
+{
+  EventEmitter.call(this);
+  this.config = opts.config;
+
+  // TODO: fill defaults
+  // if no params, connect to /var/lib/mysql/mysql.sock ( /tmp/mysql.sock on OSX )
+  // if host is given, connect to host:3306
+
+  // TODO: use `/usr/local/mysql/bin/mysql_config --socket` output? as default socketPath
+  // if there is no host/port and no socketPath parameters?
+
+  if (!opts.config.stream) {
+    if (opts.config.socketPath) {
+      this.stream = Net.connect(opts.config.socketPath);
+    } else {
+      this.stream = Net.connect(opts.config.port, opts.config.host);
+    }
+  } else {
+    // if stream is a function, treat it as &#x22;stream agent / factory&#x22;
+    if (typeof opts.config.stream == &#x27;function&#x27;) {
+      this.stream = opts.config.stream(opts);
+    } else {
+      this.stream = opts.config.stream;
+    }
+  }
+  this._internalId = _connectionId++;
+
+  this._commands = new Queue();
+  this._command = null;
+
+  this._paused = false;
+  this._paused_packets = new Queue();
+
+  this._statements = LRU({
+    max: this.config.maxPreparedStatements,
+    dispose: function (key, statement) { statement.close(); }
+  });
+
+  // TODO: make it lru cache
+  // https://github.com/mercadolibre/node-simple-lru-cache
+  // or https://github.com/rsms/js-lru
+  // or https://github.com/monsur/jscache
+  // or https://github.com/isaacs/node-lru-cache
+  //
+  // key is field.name + &#x27;:&#x27; + field.columnType + &#x27;:&#x27; field.flags + &#x27;/&#x27;
+  this.textProtocolParsers = {};
+
+  // TODO: not sure if cache should be separate (same key as with textProtocolParsers)
+  // or part of prepared statements cache (key is sql query)
+  this.binaryProtocolParsers = {};
+
+  this.serverCapabilityFlags = 0;
+  this.authorized = false;
+
+  var connection = this;
+
+  this.sequenceId = 0;
+  this.compressedSequenceId = 0;
+
+  this.threadId = null;
+  this._handshakePacket = null;
+  this._fatalError = null;
+  this._protocolError = null;
+  this._outOfOrderPackets = [];
+
+  this.clientEncoding = CharsetToEncoding[this.config.charsetNumber];
+
+  this.stream.once(&#x27;error&#x27;, connection._handleNetworkError.bind(this));
+
+  // see https://gist.github.com/khoomeister/4985691#use-that-instead-of-bind
+  this.packetParser = new PacketParser(function (p) {
+    connection.handlePacket(p);
+  });
+
+  this.stream.on(&#x27;data&#x27;, function (data) {
+    if (connection.connectTimeout) {
+      Timers.clearTimeout(connection.connectTimeout);
+      connection.connectTimeout = null;
+    }
+    connection.packetParser.execute(data);
+  });
+
+  this.stream.on(&#x27;end&#x27;, function () {
+    // we need to set this flag everywhere where we want connection to close
+    if (connection._closing) {
+      return;
+    }
+
+    if (!connection._protocolError) { // no particular error message before disconnect
+      connection._protocolError = new Error(&#x27;Connection lost: The server closed the connection.&#x27;);
+      connection._protocolError.fatal = true;
+      connection._protocolError.code = &#x27;PROTOCOL_CONNECTION_LOST&#x27;;
+    }
+
+    connection._notifyError(connection._protocolError);
+  });
+  var handshakeCommand;
+  if (!this.config.isServer) {
+    handshakeCommand = new Commands.ClientHandshake(this.config.clientFlags);
+    handshakeCommand.on(&#x27;end&#x27;, function () {
+      connection._handshakePacket = handshakeCommand.handshake;
+      connection.threadId = handshakeCommand.handshake.connectionId;
+      connection.emit(&#x27;connect&#x27;, handshakeCommand.handshake);
+    });
+    handshakeCommand.on(&#x27;error&#x27;, function (err) {
+      connection._notifyError(err);
+    });
+    this.addCommand(handshakeCommand);
+  }
+
+  // in case there was no initiall handshake but we need to read sting, assume it utf-8
+  // most common example: &#x22;Too many connections&#x22; error ( packet is sent immediately on connection attempt, we don&#x27;t know server
+encoding yet)
+  // will be overwrittedn with actial encoding value as soon as server handshake packet is received
+  this.serverEncoding = &#x27;utf8&#x27;;
+
+  if (this.config.connectTimeout) {
+    var timeoutHandler = this._handleTimeoutError.bind(this);
+    this.connectTimeout = Timers.setTimeout(timeoutHandler, this.config.connectTimeout);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.pool_connection.prototype" id="apidoc.module.mysql2.pool_connection.prototype">module mysql2.pool_connection.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_connection.prototype._realEnd" id="apidoc.element.mysql2.pool_connection.prototype._realEnd">
+        function <span class="apidocSignatureSpan">mysql2.pool_connection.prototype.</span>_realEnd
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_realEnd = function (callback) {
+  var connection = this;
+
+  if (this.config.isServer) {
+    connection._closing = true;
+    var quitCmd = new EventEmitter();
+    setImmediate(function () {
+      connection.stream.end();
+      quitCmd.emit(&#x27;end&#x27;);
+    });
+    return quitCmd;
+  }
+
+  // trigger error if more commands enqueued after end command
+  var quitCmd = this.addCommand(new Commands.Quit(callback));
+  connection.addCommand = connection._addCommandClosedState;
+  return quitCmd;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (this._allConnections.length === 0) {
+  endCB();
+  return;
+}
+
+for (var i = 0; i &#x3c; this._allConnections.length; i++) {
+  connection = this._allConnections.get(i);
+  connection.<span class="apidocCodeKeywordSpan">_realEnd</span>(endCB);
+}
+};
+
+Pool.prototype.query = function (sql, values, cb) {
+var cmdQuery = Connection.createQuery(sql, values, cb, this.config.connectionConfig);
+cmdQuery.namedPlaceholders = this.config.connectionConfig.namedPlaceholders;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_connection.prototype._removeFromPool" id="apidoc.element.mysql2.pool_connection.prototype._removeFromPool">
+        function <span class="apidocSignatureSpan">mysql2.pool_connection.prototype.</span>_removeFromPool
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_removeFromPool = function () {
+  if (!this._pool || this._pool._closed) {
+    return;
+  }
+
+  var pool = this._pool;
+  this._pool = null;
+
+  pool._removeConnection(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Connection.call(this, options);
+this._pool = pool;
+
+// When a fatal error occurs the connection&#x27;s protocol ends, which will cause
+// the connection to end as well, thus we only need to watch for the end event
+// and we will be notified of disconnects.
+var connection = this;
+this.on(&#x27;end&#x27;, function (err) { this.<span class="apidocCodeKeywordSpan">_removeFromPool</span>(); });
+this.on(&#x27;error&#x27;, function (err) { this._removeFromPool(); });
+}
+
+PoolConnection.prototype.release = function () {
+if (!this._pool || this._pool._closed) {
+  return;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_connection.prototype.destroy" id="apidoc.element.mysql2.pool_connection.prototype.destroy">
+        function <span class="apidocSignatureSpan">mysql2.pool_connection.prototype.</span>destroy
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function () {
+  this._removeFromPool();
+  return Connection.prototype.destroy.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_connection.prototype.end" id="apidoc.element.mysql2.pool_connection.prototype.end">
+        function <span class="apidocSignatureSpan">mysql2.pool_connection.prototype.</span>end
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function () {
+  console.warn(&#x27;Calling conn.end() to release a pooled connection is &#x27;
+              + &#x27;deprecated. In next version calling conn.end() will be &#x27;
+              + &#x27;restored to default conn.end() behavior. Use &#x27;
+              + &#x27;conn.release() instead.&#x27;
+              );
+  this.release();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (this._closed) {
+  return;
+}
+
+this._closed = true;
+
+for (var id in this._nodes) {
+  this._nodes[id].pool.<span class="apidocCodeKeywordSpan">end</span>();
+}
+};
+
+PoolCluster.prototype._findNodeIds = function (pattern) {
+if (typeof this._findCaches[pattern] !== &#x27;undefined&#x27;) {
+  return this._findCaches[pattern];
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.pool_connection.prototype.release" id="apidoc.element.mysql2.pool_connection.prototype.release">
+        function <span class="apidocSignatureSpan">mysql2.pool_connection.prototype.</span>release
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">release = function () {
+  if (!this._pool || this._pool._closed) {
+    return;
+  }
+  this._pool.releaseConnection(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    } else {
+      cmdQuery.emit(&#x27;error&#x27;, err);
+    }
+    return;
+  }
+
+  conn.query(cmdQuery).once(&#x27;end&#x27;, function () {
+    conn.<span class="apidocCodeKeywordSpan">release</span>();
+  });
+});
+return cmdQuery;
+};
+
+Pool.prototype.execute = function (sql, values, cb) {
+var useNamedPlaceholders = this.config.connectionConfig.namedPlaceholders;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.promise" id="apidoc.module.mysql2.promise">module mysql2.promise</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.promise.createConnection" id="apidoc.element.mysql2.promise.createConnection">
+        function <span class="apidocSignatureSpan">mysql2.promise.</span>createConnection
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createConnection(opts) {
+  var coreConnection = core.createConnection(opts);
+  var Promise = opts.Promise || global.Promise;
+  if (!Promise) {
+    throw new Error(&#x27;no Promise implementation available.&#x27; +
+      &#x27;Use promise-enabled node version or pass userland Promise&#x27; +
+      &#x27; implementation as parameter, for example: { Promise: require(\&#x27;es6-promise\&#x27;).Promise }&#x27;);
+  }
+  return new Promise(function (resolve, reject) {
+    coreConnection.once(&#x27;connect&#x27;, function (connectParams) {
+      resolve(new PromiseConnection(coreConnection, Promise));
+    });
+    coreConnection.once(&#x27;error&#x27;, reject);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## First Query
+
+```js
+// get the client
+var mysql = require(&#x27;mysql2&#x27;);
+
+// create the connection to database
+var connection = mysql.<span class="apidocCodeKeywordSpan">createConnection</span>({host:&#x27;localhost&#x27;, user: &#x27;root
+&#x27;, database: &#x27;test&#x27;});
+
+// simple query
+connection.query(&#x27;SELECT * FROM `table` WHERE `name` = &#x22;Page&#x22; AND `age` &#x3e; 45&#x27;, function (err, results,
+fields) {
+  console.log(results); // results contains rows returned by server
+  console.log(fields); // fields contains extra meta data about results, if available
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.promise.createPool" id="apidoc.element.mysql2.promise.createPool">
+        function <span class="apidocSignatureSpan">mysql2.promise.</span>createPool
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createPool(opts) {
+  var corePool = core.createPool(opts);
+  var Promise = opts.Promise || global.Promise || require(&#x27;es6-promise&#x27;);
+
+  var promisePool = {
+    getConnection: function () {
+      return new Promise(function (resolve, reject) {
+        corePool.getConnection(function (err, coreConnection) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(new PromiseConnection(coreConnection, Promise));
+          }
+        });
+      });
+    },
+
+    query: function (sql, args) {
+      return new Promise(function (resolve, reject) {
+        var done = makeDoneCb(resolve, reject);
+        if (args) {
+          corePool.query(sql, args, done);
+        } else {
+          corePool.query(sql, done);
+        }
+      });
+    },
+
+    execute: function (sql, values) {
+      return new Promise(function (resolve, reject) {
+        corePool.execute(sql, values, makeDoneCb(resolve, reject));
+      });
+    },
+
+    end: function () {
+      return new Promise(function (resolve, reject) {
+        corePool.end(function (err) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
+        });
+      });
+    }
+  };
+
+  return promisePool;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  c.end(function () {
+    resolve();
+  });
+});
+};
+
+function createPool (opts) {
+var corePool = core.<span class="apidocCodeKeywordSpan">createPool</span>(opts);
+var Promise = opts.Promise || global.Promise || require(&#x27;es6-promise&#x27;);
+
+var promisePool = {
+  getConnection: function () {
+    return new Promise(function (resolve, reject) {
+      corePool.getConnection(function (err, coreConnection) {
+        if (err) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.server" id="apidoc.module.mysql2.server">module mysql2.server</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.server.server" id="apidoc.element.mysql2.server.server">
+        function <span class="apidocSignatureSpan">mysql2.</span>server
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Server()
+{
+  EventEmitter.call(this);
+  this.connections = [];
+  this._server = net.createServer(this._handleConnection.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.server.super_" id="apidoc.element.mysql2.server.super_">
+        function <span class="apidocSignatureSpan">mysql2.server.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql2.server.prototype" id="apidoc.module.mysql2.server.prototype">module mysql2.server.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.server.prototype._handleConnection" id="apidoc.element.mysql2.server.prototype._handleConnection">
+        function <span class="apidocSignatureSpan">mysql2.server.prototype.</span>_handleConnection
+        <span class="apidocSignatureSpan">(socket)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleConnection = function (socket) {
+  var connectionConfig = new ConnectionConfig({stream: socket, isServer: true});
+  var connection = new Connection({config: connectionConfig});
+  this.emit(&#x27;connection&#x27;, connection);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.server.prototype.close" id="apidoc.element.mysql2.server.prototype.close">
+        function <span class="apidocSignatureSpan">mysql2.server.prototype.</span>close
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (cb) {
+  this._server.close(cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Server.prototype.listen = function (port, host, backlog, callback) {
+  this._port = port;
+  this._server.listen.apply(this._server, arguments);
+  return this;
+};
+
+Server.prototype.close = function (cb) {
+  this._server.<span class="apidocCodeKeywordSpan">close</span>(cb);
+};
+
+module.exports = Server;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mysql2.server.prototype.listen" id="apidoc.element.mysql2.server.prototype.listen">
+        function <span class="apidocSignatureSpan">mysql2.server.prototype.</span>listen
+        <span class="apidocSignatureSpan">(port, host, backlog, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listen = function (port, host, backlog, callback) {
+  this._port = port;
+  this._server.listen.apply(this._server, arguments);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
